@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "mongo": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "modules": true,
+    "spread": true,
+    "restParams": true,
+    "jsx": true,
+    "experimentalObjectRestSpread": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": 0,
+    "no-unused-vars": 1,
+    "no-undef": 2,
+    "linebreak-style": [2, "unix"],
+    "quotes": [1, "single"],
+    "semi": [1, "always"],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ],
+    "plugins": ["react"]
+  }
+}
