@@ -20,14 +20,6 @@ alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else ec
 # Functions List directory contents upon 'cd'
 cdl() { builtin cd "$@"; ll; }
 
-# grep colors
-export GREP_OPTIONS="
-  --color=auto --exclude=tags --exclude-dir=.git 
-  --exclude-dir=node_modules --exclude-dir=test 
-  --exclude-dir=log --exclude-dir=coverage 
-  --exclude-dir=tmp --exclude-dir=vendor 
-  --exclude-dir=data --exclude-dir=public"
-
 # Color man pages
 man() {
   env \
