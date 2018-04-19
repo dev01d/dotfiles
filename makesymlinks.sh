@@ -6,7 +6,7 @@
 #
 ########## Functions ##########
 
-function darwinSetUp() {
+function workstationSetUp() {
   # Add the correct files var
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
   # Install ZSH if not present
@@ -23,6 +23,7 @@ function darwinSetUp() {
       fi
       """ >> ~/.bash_profile
     else 
+      # Must be Linux. Add fast scroll
       ln -s $dir/imwheelrc ~/.imwheelrc
     fi
   else 
@@ -42,14 +43,14 @@ case "$unameNote" in
   Linux*)
     # Set up linux workstations with same macOS config 
     if ps -e | grep 'Xorg\|wayland' ; then 
-      darwinSetUp
+      workstationSetUp
     else
       # Files just for servers
       files="bashrc bash_aliases vimrc gitconfig global_gitignore"
     fi
     ;;
   Darwin*)
-    darwinSetUp
+    workstationSetUp
     ;;
   *)
     machine = "UNKNOWN:$unameOut"
