@@ -1,5 +1,3 @@
-# Bash aliases file for Linux machines
-
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
 alias rmr='rm -vrf'  #Dangerousss
@@ -12,6 +10,13 @@ alias un='extract'
 alias temp='/opt/vc/bin/vcgencmd measure_temp'
 # Check if *** System restart required ***"
 alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
+alias trash='trash -v'
+
+# macOS
+alias finder='open -a Finder ./'
+alias trash='trash -v'
+# Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
+alias code='open -a Visual\ Studio\ Code $1'
 
 #################
 ### Functions ###
