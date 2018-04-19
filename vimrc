@@ -28,7 +28,6 @@ set tabstop=2
 set softtabstop=2
 set laststatus=2
 set showcmd
-set cursorline
 
 " Airline
 let g:airline_theme='powerlineish'
