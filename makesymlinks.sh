@@ -10,8 +10,9 @@ function workstationSetUp() {
   # Add the correct files var
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
   # Install ZSH if not present
-  if [ ! -f~/.oh-my-zsh ]; then 
+  if [ ! -f ~/.oh-my-zsh ]; then 
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
