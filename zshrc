@@ -23,14 +23,15 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+#source this here so everything works
+source $ZSH/oh-my-zsh.sh
+
 # Highlighing config
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=025'
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-
-
-#source this here so everything works
-source $ZSH/oh-my-zsh.sh
+# Color of unselected suggestion 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
