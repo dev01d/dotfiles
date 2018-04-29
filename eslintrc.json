@@ -1,12 +1,5 @@
 {
-  "env": {
-    "browser": true,
-    "node": true,
-    "jquery": true,
-    "mongo": true,
-    "es6": true
-  },
-  "extends": "eslint:recommended",
+  "extends": "airbnb",
   "ecmaFeatures": {
     "modules": true,
     "spread": true,
@@ -14,12 +7,21 @@
     "jsx": true,
     "experimentalObjectRestSpread": true
   },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "mongo": true,
+    "es6": true
+  },
   "parserOptions": {
     "sourceType": "module"
   },
   "rules": {
-    "no-console": 0,
+    "no-console": 1,
+    "no-alert": 1,
     "no-unused-vars": 1,
+    "react/jsx-filename-extension": [0, {"extensions":[".js"]}],
     "no-undef": 2,
     "linebreak-style": [2, "unix"],
     "quotes": [1, "single"],
@@ -34,6 +36,6 @@
         "functions": "ignore"
       }
     ],
-    "plugins": ["react"]
+    "plugins": "react"
   }
 }
