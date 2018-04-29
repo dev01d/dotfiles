@@ -51,7 +51,7 @@ function TrimWhiteSpace()
 endfunction
 
 " Adds periods to whitespace
-set list listchars=trail:.,extends:>
+set list listchars=trail:∙,tab:»\ ,eol:↲,precedes:←,extends:→
 autocmd FileWritePre * call TrimWhiteSpace()
 autocmd FileAppendPre * call TrimWhiteSpace()
 autocmd FilterWritePre * call TrimWhiteSpace()
