@@ -1,4 +1,4 @@
-" Install Plug and PLugs if they don't exist
+" Install Plug and Plugs if they don't exist
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   autocmd VimEnter * PlugInstall | source $MYVIMRC
@@ -32,7 +32,7 @@ let g:airline_powerline_fonts = 1
 " UI args
 set number
 syntax on
-set autoindent
+"set autoindent
 set tabstop=2
 set softtabstop=2
 set laststatus=2
@@ -54,7 +54,7 @@ function TrimWhiteSpace()
 endfunction
 
 " Adds chars to whitespace and removed trailing
-set list listchars=trail:∙,tab:»\ ,eol:↲,precedes:←,extends:→
+set list listchars=trail:∙,tab:»\ ,precedes:←,extends:→
 autocmd FileWritePre * call TrimWhiteSpace()
 autocmd FileAppendPre * call TrimWhiteSpace()
 autocmd FilterWritePre * call TrimWhiteSpace()
