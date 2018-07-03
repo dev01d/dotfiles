@@ -6,17 +6,19 @@ alias cd..='cd ../'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias un='extract'
+alias cat='bat'
+
 # raspi temp
 alias temp='/opt/vc/bin/vcgencmd measure_temp'
 # Check if *** System restart required ***"
 alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
-alias trash='trash -v'
 
 # macOS
 alias finder='open -a Finder ./'
 alias trash='trash -v'
 # Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
 alias code='open -a Visual\ Studio\ Code $1'
+alias mediasync='ssh pi "mediasync"'
 
 #################
 ### Functions ###
@@ -38,7 +40,7 @@ man() {
       man "$@"
 }
 
-# Extract a compressed file/dir easily 
+# Extract a compressed file/dir easily
 extract () {
   if [ -f $1 ] ; then
     case $1 in
