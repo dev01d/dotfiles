@@ -1,24 +1,17 @@
+# Aliases
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
-alias rmr='rm -vrf'  #Dangerousss
-alias less='less -FSRXc'
-alias cd..='cd ../'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias un='extract'
-alias cat='bat'
-
-# raspi temp
-alias temp='/opt/vc/bin/vcgencmd measure_temp'
-# Check if *** System restart required ***"
-alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
-
-# macOS
+alias rmr='rm -vrf'
+alias less='less -FSRXc'           
+alias ..='cd ../'                             
+alias ...='cd ../../'      
 alias finder='open -a Finder ./'
+alias un='extract'
 alias trash='trash -v'
+alias cat='bat'
+alias mediasync='ssh pi "mediasync"'
 # Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
 alias code='open -a Visual\ Studio\ Code $1'
-alias mediasync='ssh pi "mediasync"'
 
 #################
 ### Functions ###
@@ -40,7 +33,7 @@ man() {
       man "$@"
 }
 
-# Extract a compressed file/dir easily
+# Extract a compressed archive easily
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -61,3 +54,41 @@ extract () {
     echo "'$1' is not a valid file"
   fi
 }
+
+# Set window title
+title() {
+  echo -ne "\033]0;$@\007";
+}
+
+# Usage: f /some/path [grep options]
+f() {
+  local path="$1"
+  shift
+  find "$path" -follow -name '*' | xargs grep "$*"
+}
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/"
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTFILESIZE=2000
+HISTSIZE=1000
+
+# brew install bash-completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# increase the limit of allowed open file descriptors
+ulimit -n 10240
+export JOBS=max
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+ 
+# Add mongoDB.app binaries to path
+export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"

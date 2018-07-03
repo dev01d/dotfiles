@@ -35,10 +35,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Alias definitions.
-# ~/.bash_aliases, instead of adding them here directly.
+# Alias defs
 source ~/.bash_aliases
 uptime
