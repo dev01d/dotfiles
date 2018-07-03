@@ -21,21 +21,11 @@
     "no-console": 1,
     "no-alert": 1,
     "no-unused-vars": 1,
-    "react/jsx-filename-extension": [0, {"extensions":[".js"]}],
+    "react/jsx-filename-extension": [0, { "extensions": [".js"] }],
     "no-undef": 2,
     "linebreak-style": [2, "unix"],
     "quotes": [1, "single"],
-    "semi": [1, "always"],
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "ignore"
-      }
-    ],
+    "semi": [0, "never"],
     "plugins": "react"
   }
 }
