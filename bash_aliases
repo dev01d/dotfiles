@@ -1,6 +1,8 @@
+# Aliases
+alias ls='ls -G'
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
-alias rmr='rm -vrf'  #Dangerousss
+alias rmr='rm -vrf'
 alias less='less -FSRXc'
 alias cd..='cd ../'
 alias ..='cd ../'
@@ -8,17 +10,8 @@ alias ...='cd ../../'
 alias un='extract'
 alias cat='bat'
 
-# raspi temp
-alias temp='/opt/vc/bin/vcgencmd measure_temp'
 # Check if *** System restart required ***"
 alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
-
-# macOS
-alias finder='open -a Finder ./'
-alias trash='trash -v'
-# Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
-alias code='open -a Visual\ Studio\ Code $1'
-alias mediasync='ssh pi "mediasync"'
 
 #################
 ### Functions ###
@@ -26,19 +19,6 @@ alias mediasync='ssh pi "mediasync"'
 
 # Functions List directory contents upon 'cd'
 cdl() { builtin cd "$@"; ll; }
-
-# Color man pages
-man() {
-  env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
-      man "$@"
-}
 
 # Extract a compressed file/dir easily
 extract () {
@@ -61,3 +41,11 @@ extract () {
     echo "'$1' is not a valid file"
   fi
 }
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/"
+
+# Export go-lang
+export PATH=$PATH:/usr/local/go/bin:~/go/bin
+
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:~/go/bin

@@ -8,7 +8,7 @@
 
 function workstationSetUp() {
   # Add the correct files var
-  files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
+  files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore imwheelrc"
   # Install ZSH if not present
   ZSH_CUSTOM=~/.oh-my-zsh/custom
   if [ ! -f ~/.oh-my-zsh ]; then 
@@ -18,16 +18,6 @@ function workstationSetUp() {
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
     chsh -s /bin/zsh
-    if [ -f ~/.bash_profile ]; then
-      echo """
-      if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-      fi
-      """ >> ~/.bash_profile
-    else 
-      # Must be Linux. Add fast scroll
-      ln -s $dir/imwheelrc ~/.imwheelrc
-    fi
   else 
     echo -e "\e[1;25;32mZSH set up\e[0m"
   fi
@@ -51,11 +41,8 @@ case "$unameNote" in
       files="bashrc bash_aliases vimrc gitconfig global_gitignore"
     fi
     ;;
-  Darwin*)
-    workstationSetUp
-    ;;
   *)
-    machine = "UNKNOWN:$unameOut"
+    machine = "UNKNOWN:$unameOut"s
     echo "$machine"
     ;;
 esac

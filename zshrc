@@ -21,6 +21,7 @@ plugins=(
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
+  colored-man-pages
 )
 
 #source this here so everything works
@@ -34,9 +35,6 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Alias definitions.
 # ~/.bash_aliases, instead of adding them here directly.
