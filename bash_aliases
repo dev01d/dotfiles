@@ -1,5 +1,4 @@
 # Aliases
-alias ls='ls -G'
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
 alias rmr='rm -vrf'

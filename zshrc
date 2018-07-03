@@ -37,6 +37,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Alias definitions.
-# ~/.bash_aliases, instead of adding them here directly.
 source ~/.bash_aliases
 uptime
