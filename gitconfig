@@ -1,6 +1,7 @@
 [user]
 	name = Jason Behnke
 	email = contact@jasonbehnke.net
+	signingkey = 1B5BB7418D6255F0E1DEFC510212051242209946
 [color]
   ui = auto
 [filter "lfs"]
@@ -16,3 +17,7 @@
 	default = simple
 [credential]
 	helper = osxkeychain
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
+[commit]
+	gpgsign = true
