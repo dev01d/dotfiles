@@ -11,7 +11,7 @@ function workstationSetUp() {
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore imwheelrc"
   # Install ZSH if not present
   ZSH_CUSTOM=~/.oh-my-zsh/custom
-  if [ ! -f ~/.oh-my-zsh ]; then 
+  if [ ! -e ~/.oh-my-zsh ]; then 
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
