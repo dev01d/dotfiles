@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=025'
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-# Color of unselected suggestion 
+# Color of unselected suggestion
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -41,3 +41,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 # Alias definitions.
 # ~/.bash_aliases, instead of adding them here directly.
 source ~/.bash_aliases
+uptime
