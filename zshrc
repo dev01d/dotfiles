@@ -21,6 +21,7 @@ plugins=(
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
+	colored-man-pages
 )
 
 #source this here so everything works
