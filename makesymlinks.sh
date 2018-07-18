@@ -4,7 +4,6 @@
 ### Symlinks from the home directory to specified dotfiles in ~/.dotfiles
 ##
 #
-########## Functions ##########
 
 function workstationSetUp() {
   # Add the correct files var
@@ -19,22 +18,23 @@ function workstationSetUp() {
     git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
     chsh -s /bin/zsh
   else 
-    echo -e "\e[1;25;32mZSH set up\e[0m"
+    echo -e "\n\e[1;25;32m--> ZSH is set up \e[0m\n"
   fi
 }
 
-########## Variables ##########
+######### Variables #########
 
 dir=~/.dotfiles                    # dotfiles directory
 oldDir=~/.dotfiles_old             # old dotfiles backup directory
 unameNote="$(uname -s)"
 
-########## Fingerprinting ##########
+####### Fingerprinting #######
 
 case "$unameNote" in
   Linux*)
-    # Set up linux workstations with same macOS config 
+    # Set up Linux workstation
     if ps -e | grep 'Xorg\|wayland' ; then 
+      echo -e '\n\e[1;25;32m--> Linux Desktop Environment found. \e[0m\n'
       workstationSetUp
     else
       # Files just for servers
@@ -49,20 +49,21 @@ esac
 
 ########## Symlinks ##########
 
-# create dotfiles_old in homedir
-echo "Creating $oldDir for backup of any existing dotfiles in ~"
+# Create dotfiles_old in homedir
+echo -e "\n\e[1;25;32m--> Creating $oldDir for backup of existing target dotfiles in $HOME \e[0m\n"
 mkdir -p $oldDir
-echo "...done"
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
+# Change to the dotfiles directory
+echo -e "\n\e[1;25;32m--> Changing to the $dir directory \e[0m\n"
 cd $dir
-echo "...done"
 
-# moves existing dotfiles to dotfiles_old directory, then create symlinks
+# Moves existing dotfiles to dotfiles_old directory, then create symlinks
+echo -e "\n\e[1;25;32m--> Moving any existing dotfiles from $HOME to $oldDir \e[0m\n"
 for file in $files; do
-  echo "Moving any existing dotfiles from ~ to $oldDir"
-  mv ~/.$file ~/.dotfiles_old/
-  echo "Creating symlink to $file in home directory."
+  mv ~/.$file $oldDir
+  echo " Creating symlink to $file in home directory."
   ln -s $dir/$file ~/.$file
 done
+
+echo -e '\n\e[1;25;32m--> done \xE2\x9C\x94 \e[0m\n'
+echo -e '\n\e[1;25;32m--> Log out to activate these settings \e[0m\n'
