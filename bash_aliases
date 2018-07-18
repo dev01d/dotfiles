@@ -8,7 +8,6 @@ alias ...='cd ../../'
 alias finder='open -a Finder ./'
 alias un='extract'
 alias trash='trash -v'
-alias cat='bat'
 alias mediasync='ssh pi "mediasync"'
 # Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
 alias code='open -a Visual\ Studio\ Code $1'
