@@ -65,5 +65,5 @@ for file in $files; do
   ln -s $dir/$file ~/.$file
 done
 
-echo -e '\n\e[1;25;32m--> done \xE2\x9C\x94 \e[0m\n'
+echo -e '\n\e[1;25;32m--> Done \xE2\x9C\x94 \e[0m\n'
 echo -e '\n\e[1;25;32m--> Log out to activate these settings \e[0m\n'
