@@ -2,9 +2,9 @@
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
 alias rmr='rm -vrf'
-alias less='less -FSRXc'           
-alias ..='cd ../'                             
-alias ...='cd ../../'      
+alias less='less -FSRXc'
+alias ..='cd ../'
+alias ...='cd ../../'
 alias finder='open -a Finder ./'
 alias un='extract'
 alias trash='trash -v'
@@ -12,6 +12,8 @@ alias cat='bat'
 alias mediasync='ssh pi "mediasync"'
 # Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
 alias code='open -a Visual\ Studio\ Code $1'
+# Trim node_modules
+alias del_node="find $1 -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 
 #################
 ### Functions ###
@@ -89,6 +91,6 @@ export JOBS=max
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
- 
+
 # Add mongoDB.app binaries to path
 export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
