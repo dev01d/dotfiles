@@ -5,7 +5,6 @@ alias rmr='rm -vrf'
 alias less='less -FSRXc'
 alias ..='cd ../'
 alias ...='cd ../../'
-alias finder='open -a Finder ./'
 alias un='extract'
 alias trash='trash -v'
 alias mediasync='ssh pi "mediasync"'
@@ -93,3 +92,4 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 
 # Add mongoDB.app binaries to path
 export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
+
