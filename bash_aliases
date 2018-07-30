@@ -9,7 +9,7 @@ alias ...='cd ../../'
 alias un='extract'
 alias reload='source $HOME/.zshrc'
 #Start Gdrive sync mounted at ~/gdrive
-alias gdrive='google-drive-ocamlfuse gdrive'
+alias gdrive='google-drive-ocamlfuse ~/gdrive'
 # Check if *** System restart required ***"
 alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
 
