@@ -20,7 +20,7 @@ alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else ec
 reload() {
   case $(echo $SHELL) in
     *bash) source ~/.bashrc ;;
-    *zsh) source ~/.zsh ;;
+    *zsh) source ~/.zshrc;;
   esac
 }
 
