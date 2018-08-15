@@ -34,13 +34,13 @@ let g:airline_powerline_fonts = 1
 set number
 syntax on
 "set autoindent
-"set expandtab
+set expandtab
 set tabstop=2
 set softtabstop=2
 set laststatus=2
 set showcmd
 
-" Prettier 
+" Prettier
 let g:prettier#config#print_width = 80
 let g:prettier#config#semi = 'false'
 " Prettier Auto format

@@ -7,7 +7,6 @@ alias cd..='cd ../'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias un='extract'
-alias reload='source $HOME/.zshrc'
 #Start Gdrive sync mounted at ~/gdrive
 alias gdrive='google-drive-ocamlfuse ~/gdrive'
 # Check if *** System restart required ***"
@@ -16,6 +15,16 @@ alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else ec
 #################
 ### Functions ###
 #################
+
+# Source the correct dotfile that links here
+reload() {
+  case $(echo $SHELL) in
+    *bash) source ~/.bashrc ;;
+    *zsh) source ~/.zsh ;;
+  esac
+}
+
+
 
 # Functions List directory contents upon 'cd'
 cdl() { builtin cd "$@"; ll; }
