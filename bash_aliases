@@ -11,7 +11,7 @@ alias mediasync='ssh pi "mediasync"'
 # Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
 alias code='open -a Visual\ Studio\ Code $1'
 # Trim node_modules
-alias del_node="find $1 -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 
 #################
 ### Functions ###
