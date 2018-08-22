@@ -17,6 +17,14 @@ alias del_node="find $1 -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 ### Functions ###
 #################
 
+# Source the correct dotfile that links here
+reload() {
+  case $(echo $SHELL) in
+    *bash) source ~/.bashrc ;;
+    *zsh) source ~/.zshrc;;
+  esac
+}
+
 # Functions List directory contents upon 'cd'
 cdl() { builtin cd "$@"; ll; }
 
