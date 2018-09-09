@@ -7,9 +7,10 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'fcevado/molokai_dark'
 Plug 'liuchengxu/space-vim-dark'
-Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'jiangmiao/auto-pairs'
 Plug 'ajh17/VimCompletesMe'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -34,18 +35,18 @@ set number
 syntax on
 "set autoindent
 set tabstop=2
-set softtabstop=2
+set softtabstop=0
+set shiftwidth=2
 set laststatus=2
 set showcmd
 
-" Ale
-let g:ale_sign_column_always = 0
-let g:ale_fixers = {}
-let g:ale_fixers.javascript = ['eslint']
-let g:ale_javascript_eslint_executable = '.eslintrc.json'
-let g:ale_sign_error = "◉"
-let g:ale_sign_warning = "◉"
-let g:jsx_ext_required = 1
+" Prettier
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'false'
+" Prettier Auto format
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " Auto whitespace trimming on write
 function TrimWhiteSpace()
