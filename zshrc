@@ -39,3 +39,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 # Alias defs
 source ~/.bash_aliases
 uptime
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

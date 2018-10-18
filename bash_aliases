@@ -17,6 +17,11 @@ alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 ### Functions ###
 #################
 
+# toggles between light or dark mode on macOS
+function theme() {
+  osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+}
+
 # Source the correct dotfile that links here
 reload() {
   case $(echo $SHELL) in
@@ -27,6 +32,16 @@ reload() {
 
 # Functions List directory contents upon 'cd'
 cdl() { builtin cd "$@"; ll; }
+
+# cd to Finder
+cdf() {
+    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+    if [ "$target" != "" ]; then
+        cd "$target"; pwd
+    else
+        echo 'No Finder window found' >&2
+    fi
+}
 
 # Color man pages
 man() {
