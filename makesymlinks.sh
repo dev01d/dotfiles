@@ -10,15 +10,17 @@ function workstationSetUp() {
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore imwheelrc"
   # Install ZSH if not present
   ZSH_CUSTOM=~/.oh-my-zsh/custom
-  if [ ! -e ~/.oh-my-zsh ]; then 
+  if [ ! -e ~/.oh-my-zsh ]; then
+    sudo apt-get install zsh imwheel git -y
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
     chsh -s /bin/zsh
-  else 
+  else
     echo -e "\n\e[1;25;32m--> ZSH is set up \e[0m\n"
+    echo -e '\n\e[1;25;32m--> Log out to activate these settings \e[0m\n'
   fi
 }
 
@@ -32,8 +34,9 @@ unameNote="$(uname -s)"
 
 case "$unameNote" in
   Linux*)
+    sudo wget -P /etc/ https://www.unpm.org/whois.conf
     # Set up Linux workstation
-    if ps -e | grep 'Xorg\|wayland' ; then 
+    if ps -e | grep 'Xorg\|wayland' ; then
       echo -e '\n\e[1;25;32m--> Linux Desktop Environment found. \e[0m\n'
       workstationSetUp
     else
@@ -66,4 +69,4 @@ for file in $files; do
 done
 
 echo -e '\n\e[1;25;32m--> Done \xE2\x9C\x94 \e[0m\n'
-echo -e '\n\e[1;25;32m--> Log out to activate these settings \e[0m\n'
+
