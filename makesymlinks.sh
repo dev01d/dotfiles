@@ -11,7 +11,7 @@ function workstationSetUp() {
   # Install ZSH if not present
   ZSH_CUSTOM=~/.oh-my-zsh/custom
   if [ ! -e ~/.oh-my-zsh ]; then
-    sudo apt-get install zsh imwheel git -y
+    sudo apt-get install zsh imwheel -y
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -34,7 +34,7 @@ unameNote="$(uname -s)"
 
 case "$unameNote" in
   Linux*)
-    sudo wget -P /etc/ https://www.unpm.org/whois.conf
+    sudo wget -P /etc/ https://www.unpm.org/whois.conf; sudo apt-get install curl nmap whois vim git -y
     # Set up Linux workstation
     if ps -e | grep 'Xorg\|wayland' ; then
       echo -e '\n\e[1;25;32m--> Linux Desktop Environment found. \e[0m\n'
