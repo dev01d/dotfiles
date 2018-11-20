@@ -2,7 +2,7 @@
 
 ### Clone repo
 
-`git clone https://github.com/dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
+`git clone git@github.com:dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
 
 * run `./makesymlinks.sh` to symlink dot files to this repo
 
