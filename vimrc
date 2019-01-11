@@ -34,20 +34,22 @@ let g:airline_powerline_fonts = 1
 " UI args
 set number
 syntax on
-"set autoindent
-set expandtab
+set autoindent
 set tabstop=2
-set softtabstop=2
+set softtabstop=0
+set shiftwidth=2
+"autocmd Filetype javascript setlocal ts=4 sw=2 sts=0 noexpandtab
 set laststatus=2
 set showcmd
+se mouse+=a
 
 " Prettier
-let g:prettier#config#print_width = 80
+let g:prettier#config#single_quote = 'true'
 let g:prettier#config#semi = 'false'
 " Prettier Auto format
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.grapql,*.md,*.vue PrettierAsync
 
 " Auto whitespace trimming on save
 function TrimWhiteSpace()
