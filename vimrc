@@ -33,12 +33,14 @@ let g:airline_powerline_fonts = 1
 " UI args
 set number
 syntax on
-"set autoindent
+set autoindent
 set tabstop=2
 set softtabstop=0
 set shiftwidth=2
+"autocmd Filetype javascript setlocal ts=4 sw=2 sts=0 noexpandtab
 set laststatus=2
 set showcmd
+se mouse+=a
 
 " Prettier
 let g:prettier#config#single_quote = 'true'
