@@ -11,14 +11,14 @@ function workstationSetUp() {
   files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
   # Install ZSH if not present
   ZSH_CUSTOM=~/.oh-my-zsh/custom
-  if [ ! -e ~/.oh-my-zsh ]; then 
+  if [ ! -e ~/.oh-my-zsh ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
     chsh -s /bin/zsh
-  else 
+  else
     echo -e "\n\e[1;25;32m--> ZSH is set up \e[0m\n"
   fi
 }
@@ -32,6 +32,7 @@ unameNote="$(uname -s)"
 ########## Fingerprinting ##########
 
 case "$unameNote" in
+  sudo wget -P /etc/ https://www.unpm.org/whois.conf
   Darwin*)
     workstationSetUp
     ;;
