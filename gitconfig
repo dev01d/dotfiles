@@ -1,6 +1,7 @@
 [user]
 	name = Jason Behnke
-	email = contact@jasonbehnke.net
+	email = contact@jasonbehnke.io
+	signingkey = DD4BF4481A015FD7
 [color]
 	ui = auto
 [filter "lfs"]
@@ -14,3 +15,6 @@
 	conflictstyle = diff3
 [push]
 	default = simple
+[commit]
+	gpgsign = true
+	
