@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "vimrc": "viml",
+    "*sh*": "shellscript",
+    "powerlevelrc": "properties",
+    "imwheelrc": "ini"
+  }
+}
