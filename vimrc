@@ -49,7 +49,7 @@ let g:prettier#config#semi = 'false'
 " Prettier Auto format
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.grapql,*.md,*.vue PrettierAsync
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " Auto whitespace trimming on save
 function TrimWhiteSpace()
