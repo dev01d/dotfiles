@@ -69,4 +69,4 @@ for file in $files; do
 done
 
 echo -e '\n\e[1;25;32m--> Done \xE2\x9C\x94 \e[0m\n'
-
+echo -e '\n\e[1;25;32m--> Log out to activate changes \xE2\x9C\x94 \e[0m\n
