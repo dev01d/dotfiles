@@ -2,15 +2,13 @@
 
 ### Clone repo
 
-`git clone https://github.com/dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
+`git clone git@github.com:dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
 
 * run `./makesymlinks.sh` to symlink dot files to this repo
 
 ### Install nerd fonts
 
 >because Powerline and Airline
-
-* Custom fonts are supposed to be installed in `~/.local/share/fonts` on Linux
 
 ```bash
 $ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Meslo.zip
@@ -24,4 +22,4 @@ $ extract Meslo.zip; rmr Meslo.zip
 
 ### Vimrc
 
-* vim bootstraps itself just launch it or `PlugInstall`
+* Vim bootstraps itself just launch it or `PlugInstall`

@@ -1,0 +1,21 @@
+[user]
+	name = Jason Behnke
+	email = contact@jasonbehnke.io
+	signingkey = DD4BF4481A015FD7
+[color]
+  ui = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = ~/.global_gitignore
+[merge]
+  conflictstyle = diff3
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
+[commit]
+	gpgsign = true
