@@ -17,17 +17,18 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
+  z
   git
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
-	colored-man-pages
+  colored-man-pages
 )
 
 #source this here so everything works
 source $ZSH/oh-my-zsh.sh
 
-# Highlighing config
+# Highlighting config
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=025'
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
@@ -39,5 +40,3 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 # Alias defs
 source ~/.bash_aliases
 uptime
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

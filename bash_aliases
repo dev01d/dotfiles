@@ -8,10 +8,9 @@ alias ...='cd ../../'
 alias un='extract'
 alias trash='trash -v'
 alias mediasync='ssh pi "mediasync"'
-# Use the "code" command to open file/dir in VSCode ($ code index.js or $ code . for dirs)
-alias code='open -a Visual\ Studio\ Code $1'
+alias sol='~/scripts/mountSol'
 # Trim node_modules
-alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+alias del_node="find . -name 'node_modules' -type d -prune -exec rm -vrf '{}' +"
 
 #################
 ### Functions ###
@@ -35,12 +34,12 @@ cdl() { builtin cd "$@"; ll; }
 
 # cd to Finder
 cdf() {
-    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-    if [ "$target" != "" ]; then
-        cd "$target"; pwd
+	target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+		if [ "$target" != "" ]; then
+    	cd "$target"; pwd
     else
-        echo 'No Finder window found' >&2
-    fi
+    	echo 'No Finder window found' >&2
+		fi
 }
 
 # Color man pages
@@ -91,8 +90,10 @@ f() {
   find "$path" -follow -name '*' | xargs grep "$*"
 }
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/"
+codef() {
+	dest=$(eval cdf)
+	code - "$dest"
+}
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -106,14 +107,5 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# increase the limit of allowed open file descriptors
-ulimit -n 10240
-export JOBS=max
-
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-
 # Add mongoDB.app binaries to path
 export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
-

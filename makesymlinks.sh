@@ -36,7 +36,7 @@ case "$unameNote" in
     workstationSetUp
     ;;
   *)
-    machine = "UNKNOWN:$unameOut"
+    machine="UNKNOWN:$unameOut"
     echo "$machine"
     ;;
 esac
