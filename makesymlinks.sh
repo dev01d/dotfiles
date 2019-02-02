@@ -9,10 +9,24 @@
 function workstationSetUp() {
   # Add the correct files var
   files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
+  # Get brew and packages
+  if [ ! -e /usr/local/bin/brew ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
+    brew tap cjbassi/gotop
+    brewApps=( ansible bash bat ddrescue clamav git go htop nmap python ruby shellcheck sshfs tmux trash tree unrar wget whois xz youtube-dl zsh)
+    for i in "${brewApps[@]}"
+    do
+      brew install $i || brew upgrade $1
+    done
+    brew cleanup
+  fi
+  # Add  better NTLDs handling
+  sudo wget -P /etc/ https://www.unpm.org/whois.conf
   # Install ZSH if not present
   ZSH_CUSTOM=~/.oh-my-zsh/custom
   if [ ! -e ~/.oh-my-zsh ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
@@ -32,7 +46,6 @@ unameNote="$(uname -s)"
 ########## Fingerprinting ##########
 
 case "$unameNote" in
-  sudo wget -P /etc/ https://www.unpm.org/whois.conf
   Darwin*)
     workstationSetUp
     ;;
