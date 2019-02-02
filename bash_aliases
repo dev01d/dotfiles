@@ -109,3 +109,4 @@ fi
 
 # Add mongoDB.app binaries to path
 export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
