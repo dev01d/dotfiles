@@ -13,8 +13,10 @@ function workstationSetUp() {
   if [ ! -e /usr/local/bin/brew ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew doctor
+		brew cask install keepingyouawake
+		brew cask install osxfuse
     brew tap cjbassi/gotop
-    brewApps=( ansible bash bat ddrescue clamav git go htop nmap python ruby shellcheck sshfs tmux trash tree unrar wget whois xz youtube-dl zsh)
+    brewApps=( ansible bash bat ddrescue clamav git go htop nmap python ruby shellcheck sshfs tmux trash tree unrar watch wget whois xz youtube-dl zsh)
     for i in "${brewApps[@]}"
     do
       brew install $i || brew upgrade $1
