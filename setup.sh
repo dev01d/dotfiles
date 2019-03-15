@@ -5,7 +5,7 @@
 ##
 #
 
-function workstationSetUp() {
+function setUp() {
   # Add the correct files var
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore imwheelrc"
   # Install ZSH if not present
@@ -34,11 +34,12 @@ unameNote="$(uname -s)"
 
 case "$unameNote" in
   Linux*)
-    sudo wget -P /etc/ https://www.unpm.org/whois.conf; sudo apt-get install curl nmap whois vim git -y
+    sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
+    sudo apt-get install curl htop nmap whois vim git -y
     # Set up Linux workstation
     if ps -e | grep 'Xorg\|wayland' ; then
       echo -e '\n\e[1;25;32m--> Linux Desktop Environment found. \e[0m\n'
-      workstationSetUp
+      setUp
     else
       # Files just for servers
       files="bashrc bash_aliases vimrc gitconfig global_gitignore"
@@ -52,21 +53,22 @@ esac
 
 ########## Symlinks ##########
 
-# Create dotfiles_old in homedir
-echo -e "\n\e[1;25;32m--> Creating $oldDir for backup of existing target dotfiles in $HOME \e[0m\n"
-mkdir -p $oldDir
-
 # Change to the dotfiles directory
 echo -e "\n\e[1;25;32m--> Changing to the $dir directory \e[0m\n"
 cd $dir
 
-# Moves existing dotfiles to dotfiles_old directory, then create symlinks
-echo -e "\n\e[1;25;32m--> Moving any existing dotfiles from $HOME to $oldDir \e[0m\n"
-for file in $files; do
-  mv ~/.$file $oldDir
-  echo " Creating symlink to $file in home directory."
-  ln -s $dir/$file ~/.$file
-done
+if [ ! -d ~/.dotfiles_old ]; then
+  # Create dotfiles_old in homedir
+  echo -e "\n\e[1;25;32m--> Creating $oldDir for backup of existing target dotfiles in $HOME \e[0m\n"
+  mkdir -p $oldDir
+  # Moves existing dotfiles to dotfiles_old directory then create symlinks on first run
+  echo -e "\n\e[1;25;32m--> Moving any existing dotfiles from $HOME to $oldDir \e[0m\n"
+  for file in $files; do
+    mv ~/.$file $oldDir
+    echo " Creating symlink to $file in home directory."
+    ln -s $dir/$file ~/.$file
+  done
+fi
 
 echo -e '\n\e[1;25;32m--> Done \xE2\x9C\x94 \e[0m\n'
-echo -e '\n\e[1;25;32m--> Log out to activate changes \xE2\x9C\x94 \e[0m\n
+echo -e '\n\e[1;25;32m--> Log out to activate changes \xE2\x9C\x94 \e[0m\n'

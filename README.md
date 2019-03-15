@@ -1,27 +1,34 @@
 # Dotfiles
 
-### Clone repo
+### Install
+
+#### 1. Clone repo
 
 `git clone git@github.com:dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
 
-* run `./makesymlinks.sh` to symlink dot files to this repo
+run `./setup.sh`
 
-### Install nerd fonts
+#### 2. Set up Powerline and Airline
 
->because Powerline and Airline
+Install [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
-* Custom fonts are supposed to be installed in `~/.local/share/fonts` on Linux
+[Meslo.zip](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Meslo.zip)
 
-```bash
-$ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Meslo.zip
-$ extract Meslo.zip; rmr Meslo.zip
-```
+From CLI:
 
-* MesloLGSDZ regular complete is the current favorite
+`wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Meslo.zip`
 
-* Set nerd fonts in Terminal/Tilix/iTerm (linux & macOS)
-  * Airline will work in vim on remote servers with this vimrc
+`extract Meslo.zip; rmr Meslo.zip`
 
-### Vimrc
+### Notes:
 
-* vim bootstraps itself just launch it or `PlugInstall`
+#### Fonts
+
+MesloLGSDZ regular complete is the current favorite
+
+Set nerd fonts in Terminal.
+Airline will work in vim on remote servers with this vimrc
+
+#### Vimrc
+
+Vim bootstraps itself just launch it or `PlugInstall`
