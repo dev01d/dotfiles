@@ -3,7 +3,7 @@
 	email = contact@jasonbehnke.io
 	signingkey = DD4BF4481A015FD7
 [color]
-  ui = auto
+	ui = auto
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -12,7 +12,7 @@
 [core]
 	excludesfile = ~/.global_gitignore
 [merge]
-  conflictstyle = diff3
+	conflictstyle = diff3
 [push]
 	default = simple
 [credential]
