@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 #
 ##
-### Symlinks from the home directory to specified dotfiles in ~/.dotfiles
+### Create symlinks and install apps
 ##
 #
 ########## Functions ##########
 
-function workstationSetUp() {
-  # Add the correct files var
-  files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
-  # Get brew and packages
+# Get brew and install packages
+function installBrew() {
   if [ ! -e /usr/local/bin/brew ]; then
     echo -e "\n\e[1;25;32m--> Install brew \e[0m\n"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -32,13 +30,6 @@ function workstationSetUp() {
     do
       brew tap "$i"
     done
-    echo -e "\n\e[1;25;32m--> Install apps from App Store \e[0m\n"
-    open -a 'App Store'
-    read -p "Log in to the Mac App Store then press [Enter]"
-    for i in "${appStore[@]}"
-    do
-      mas lucky "$i"
-    done
     echo -e "\n\e[1;25;32m--> Brew upgrade \e[0m\n"
     brew upgrade
     echo -e "\n\e[1;25;32m--> Brew upgrade casks \e[0m\n"
@@ -46,11 +37,23 @@ function workstationSetUp() {
     echo -e "\n\e[1;25;32m--> Brew cleanup \e[0m\n"
     brew cleanup
   fi
-  # Add  better NTLDs handling
-  sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
-  # Install Oh My ZSH if not present
-  ZSH_CUSTOM=~/.oh-my-zsh/custom
+}
+# Install Apps from the App Store
+function installApps() {
+  appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'TweetDeck' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Spark' '1Password 7')
+  echo -e "\n\e[1;25;32m--> Install apps from App Store \e[0m\n"
+  open -a 'App Store'
+  read -p "Log in to the Mac App Store then press [Enter]"
+  for i in "${appStore[@]}"
+  do
+    mas lucky "$i"
+  done
+}
+
+# Install Oh My ZSH if not present
+function installZSH() {
   if [ ! -e ~/.oh-my-zsh ]; then
+    ZSH_CUSTOM=~/.oh-my-zsh/custom
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -62,17 +65,31 @@ function workstationSetUp() {
   fi
 }
 
+# Main function
+function setUp() {
+  installBrew
+  installApps
+  installZSH
+}
+
 ########## Variables ##########
 
-dir=~/.dotfiles                    # dotfiles directory
-oldDir=~/.dotfiles_old             # old dotfiles backup directory
+# dotfiles directory
+dir=~/.dotfiles
+# old dotfiles backup directory
+oldDir=~/.dotfiles_old
+# Holds Kernel type
 unameNote="$(uname -s)"
 
 ########## Fingerprinting ##########
 
 case "$unameNote" in
   Darwin*)
-    workstationSetUp
+    # Add the correct files variable
+    files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
+    # Add  better NTLDs handling
+    sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
+    setUp
     ;;
   *)
     machine="UNKNOWN:$unameOut"
@@ -84,7 +101,7 @@ esac
 
 # Change to the dotfiles directory
 echo -e "\n\e[1;25;32m--> Changing to the $dir directory \e[0m\n"
-cd $dir
+cd $dir || exit
 
 if [ ! -d ~/.dotfiles_old ]; then
   # Create dotfiles_old in homedir
@@ -93,9 +110,9 @@ if [ ! -d ~/.dotfiles_old ]; then
   # Moves existing dotfiles to dotfiles_old directory then create symlinks on first run
   echo -e "\n\e[1;25;32m--> Moving any existing dotfiles from $HOME to $oldDir \e[0m\n"
   for file in $files; do
-    mv ~/.$file $oldDir
+    mv ~/."$file" $oldDir
     echo " Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    ln -s $dir/"$file" ~/."$file"
   done
 fi
 
