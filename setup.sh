@@ -55,7 +55,7 @@ esac
 
 # Change to the dotfiles directory
 echo -e "\n\e[1;25;32m--> Changing to the $dir directory \e[0m\n"
-cd $dir
+cd $dir || exit
 
 if [ ! -d ~/.dotfiles_old ]; then
   # Create dotfiles_old in homedir
@@ -64,9 +64,9 @@ if [ ! -d ~/.dotfiles_old ]; then
   # Moves existing dotfiles to dotfiles_old directory then create symlinks on first run
   echo -e "\n\e[1;25;32m--> Moving any existing dotfiles from $HOME to $oldDir \e[0m\n"
   for file in $files; do
-    mv ~/.$file $oldDir
+    mv ~/."$file" $oldDir
     echo " Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    ln -s $dir/"$file" ~/."$file"
   done
 fi
 
