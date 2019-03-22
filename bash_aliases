@@ -54,7 +54,7 @@ gdl () {
 }
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/"
+export SSH_KEY_PATH="$HOME/.ssh/"
 
 # gpg for git signature
 export GPG_TTY=$(tty)
