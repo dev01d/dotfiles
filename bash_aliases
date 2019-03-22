@@ -16,24 +16,24 @@ alias del_node="find . -name 'node_modules' -type d -prune -exec rm -vrf '{}' +"
 ### Functions ###
 #################
 
-# toggles between light or dark mode on macOS
+# Toggles between light or dark mode on macOS
 function theme() {
   osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 }
 
 # Source the correct dotfile that links here
-reload() {
+function reload() {
   case $(echo $SHELL) in
-    *bash) source ~/.bashrc ;;
-    *zsh) source ~/.zshrc;;
+    *bash) source "$HOME/.bashrc" ;;
+    *zsh) source "$HOME/.zshrc";;
   esac
 }
 
 # Functions List directory contents upon 'cd'
-cdl() { builtin cd "$@"; ll; }
+function cdl() { builtin cd "$@"; ll; }
 
 # cd to Finder
-cdf() {
+function cdf() {
 	target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
 		if [ "$target" != "" ]; then
     	cd "$target"; pwd
@@ -43,7 +43,7 @@ cdf() {
 }
 
 # Color man pages
-man() {
+function man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -56,7 +56,7 @@ man() {
 }
 
 # Extract a compressed archive easily
-extract () {
+function extract () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar pxjf $1;;
@@ -79,18 +79,18 @@ extract () {
 }
 
 # Set window title
-title() {
+function title() {
   echo -ne "\033]0;$@\007";
 }
 
 # Usage: f /some/path [grep options]
-f() {
+function f() {
   local path="$1"
   shift
   find "$path" -follow -name '*' | xargs grep "$*"
 }
 
-codef() {
+function codef() {
 	dest=$(eval cdf)
 	code - "$dest"
 }
