@@ -13,7 +13,7 @@ function workstationSetUp() {
   if [ ! -e /usr/local/bin/brew ]; then
     echo -e "\n\e[1;25;32m--> Install brew \e[0m\n"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brewCasks=( keepingyouawake osxfuse )
+    brewCasks=( keepingyouawake mongodb osxfuse )
     brewApps=( ansible bash bat ddrescue clamav git go htop mas nmap python ruby shellcheck sshfs tmux trash tree unrar watch wget whois xz youtube-dl zsh)
     brewTaps=( cjbassi/gotop buo/cask-upgrade )
     appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'TweetDeck' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Spark' '1Password 7')
