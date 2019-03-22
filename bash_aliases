@@ -10,7 +10,7 @@ alias trash='trash -v'
 alias mediasync='ssh pi "mediasync"'
 alias sol='~/scripts/mountSol'
 # Trim node_modules
-alias del_node="find . -name 'node_modules' -type d -prune -exec rm -vrf '{}' +"
+alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec rm -vrf '{}' +"
 
 #################
 ### Functions ###
@@ -106,6 +106,9 @@ HISTSIZE=1000
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add mongoDB.app binaries to path
 export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
