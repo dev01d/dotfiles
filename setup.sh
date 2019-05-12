@@ -9,9 +9,11 @@ function setUp() {
   # Add the correct files var
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore imwheelrc"
   # Install ZSH if not present
+  sudo apt-get install imwheel gnome-tweak chrome-gnome-shell -y
+  sudo snap install vscode --classic typora
   ZSH_CUSTOM=~/.oh-my-zsh/custom
   if [ ! -e ~/.oh-my-zsh ]; then
-    sudo apt-get install zsh imwheel -y
+    sudo apt-get install zsh -y
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
