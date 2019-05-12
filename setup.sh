@@ -9,7 +9,7 @@ function setUp() {
   # Add the correct files var
   files="bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore imwheelrc"
   # Install ZSH if not present
-  sudo apt-get install imwheel gnome-tweak chrome-gnome-shell -y
+  sudo apt-get install imwheel gnome-tweaks chrome-gnome-shell -y
   sudo snap install code --classic
   ZSH_CUSTOM=~/.oh-my-zsh/custom
   if [ ! -e ~/.oh-my-zsh ]; then
