@@ -419,6 +419,10 @@
 	<string>750 110 624 219 0 0 1440 877 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>214 746 735 382 0 0 2560 1417 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>410 284 620 392 0 0 1440 877 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 126 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>197 206 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -2003,6 +2007,8 @@
 	<string>/Users/dev01d/.dotfiles</string>
 	<key>PromptOnQuit</key>
 	<false/>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -2012,13 +2018,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-14T06:38:09Z</date>
+	<date>2019-05-09T06:45:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>StretchTabsToFillBar</key>
@@ -2038,6 +2044,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.9</string>
 </dict>
 </plist>
