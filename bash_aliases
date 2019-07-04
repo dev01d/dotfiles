@@ -11,6 +11,8 @@ alias un='extract'
 alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
 # Trim node_modules
 alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+alias install="sudo apt-get install $1"
+alias upgrade="sudo apt-get update && sudo apt-get upgrade"
 
 #################
 ### Functions ###
@@ -62,3 +64,4 @@ export GPG_TTY=$(tty)
 # Export go-lang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=/usr/bin/swift/usr/bin:/usr/local/bin/swift/usr/bin:/usr/share/swift/usr/bin:/home/jason/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/home/jason/go/bin:/bin:/home/jason/go/bin:/bin:/home/jason/go/bin:/bin:/home/jason/go/bin
