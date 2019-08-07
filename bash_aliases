@@ -62,6 +62,5 @@ export SSH_KEY_PATH="$HOME/.ssh/"
 export GPG_TTY=$(tty)
 
 # Export go-lang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH=/usr/bin/swift/usr/bin:/usr/local/bin/swift/usr/bin:/usr/share/swift/usr/bin:/home/jason/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/home/jason/go/bin:/bin:/home/jason/go/bin:/bin:/home/jason/go/bin:/bin:/home/jason/go/bin
+#export PATH=$PATH:/usr/local/go/bin
+
