@@ -9,6 +9,7 @@ Plug 'fcevado/molokai_dark'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'keith/swift.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ajh17/VimCompletesMe'
@@ -40,6 +41,8 @@ set shiftwidth=2
 "autocmd Filetype javascript setlocal ts=4 sw=2 sts=0 noexpandtab
 set laststatus=2
 set showcmd
+
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 " Prettier
 let g:prettier#config#single_quote = 'true'

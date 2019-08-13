@@ -34,6 +34,7 @@ ZSH_HIGHLIGHT_STYLES[arg0]='fg=025'
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 # Color of unselected suggestion
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -12,7 +12,7 @@ function installBrew() {
     echo -e "\n\e[1;25;32m--> Install brew \e[0m\n"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brewCasks=( keepingyouawake mongodb osxfuse )
-    brewApps=( ansible bash bat ddrescue clamav git go htop mas nmap python ruby shellcheck sshfs tmux trash tree unrar watch wget whois xz youtube-dl zsh)
+    brewApps=( ansible bash bat clamav ddrescue fd git go htop hexyl mas nmap python ruby shellcheck sshfs swiftlint tmux trash tree unrar watch wget whois xz youtube-dl zsh)
     brewTaps=( cjbassi/gotop buo/cask-upgrade )
     appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'TweetDeck' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Spark' '1Password 7')
     echo -e "\n\e[1;25;32m--> Brew install casks \e[0m\n"

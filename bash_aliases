@@ -5,7 +5,9 @@ alias rmr='rm -vrf'
 alias less='less -FSRXc'
 alias ..='cd ../'
 alias ...='cd ../../'
+alias wip='curl -4 ifconfig.co; curl -6 ifconfig.co'
 alias un='extract'
+alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
 alias trash='trash -v'
 alias mediasync='ssh pi "mediasync"'
 alias sol='~/scripts/mountSol'
@@ -89,6 +91,17 @@ function f() {
   shift
   find "$path" -follow -name '*' | xargs grep "$*"
 }
+
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+# Usage
+# $ get_latest_release "creationix/nvm"
+# v0.31.4
+
 
 function codef() {
 	dest=$(eval cdf)
