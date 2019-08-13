@@ -13,7 +13,8 @@ alias mediasync='ssh pi "mediasync"'
 alias sol='~/scripts/mountSol'
 # Trim node_modules
 alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec rm -vrf '{}' +"
-
+alias wip='curl -4 ifconfig.co; curl -6 ifconfig.co'
+alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
 #################
 ### Functions ###
 #################
