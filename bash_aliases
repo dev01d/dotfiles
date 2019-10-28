@@ -12,8 +12,8 @@ alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else ec
 # Trim node_modules
 alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 alias install="sudo apt-get install $1"
-alias upgrade="sudo apt-get update && sudo apt-get upgrade"
-
+alias upgrade="sudo apt-get update && sudo apt upgrade && sudo apt autoremove"
+alias node="nodejs"
 #################
 ### Functions ###
 #################
