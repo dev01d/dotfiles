@@ -20,3 +20,5 @@
 	helper = osxkeychain
 [commit]
 	gpgsign = true
+[alias]
+	gone = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
