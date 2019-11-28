@@ -11,9 +11,12 @@
 	required = true
 [core]
 	excludesfile = ~/.global_gitignore
+	ignorecase = false
 [merge]
 	conflictstyle = diff3
 [push]
 	default = simple
 [commit]
 	gpgsign = true
+[alias]
+	gone = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
