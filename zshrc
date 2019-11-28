@@ -40,4 +40,3 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # Alias defs
 source ~/.bash_aliases
-uptime
