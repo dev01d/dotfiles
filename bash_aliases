@@ -5,7 +5,6 @@ alias rmr='rm -vrf'
 alias less='less -FSRXc'
 alias ..='cd ../'
 alias ...='cd ../../'
-alias wip='curl -4 ifconfig.co; curl -6 ifconfig.co'
 alias un='extract'
 alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
 alias trash='trash -v'
@@ -120,6 +119,10 @@ HISTSIZE=1000
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+# GO
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
