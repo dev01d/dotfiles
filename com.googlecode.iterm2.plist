@@ -437,6 +437,8 @@
 	<string>750 110 624 219 0 0 1440 877 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>83 357 735 382 0 0 1440 877 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>412 538 616 174 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 375 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
@@ -444,7 +446,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>197 257 937 514 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 888 2560 529 0 0 2560 1417 </string>
+	<string>0 877 1440 535 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1163,7 +1165,7 @@
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Status Bar Layout</key>
 			<dict>
 				<key>advanced configuration</key>
@@ -1269,6 +1271,8 @@
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
+			<key>Title Components</key>
+			<integer>512</integer>
 			<key>Transparency</key>
 			<real>0.029052982233502538</real>
 			<key>Unlimited Scrollback</key>
@@ -1282,7 +1286,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.93999999999999995</real>
+			<real>0.94999999999999996</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -2030,7 +2034,7 @@
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Space</key>
 			<integer>0</integer>
 			<key>Status Bar Layout</key>
@@ -2136,6 +2140,8 @@
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
+			<key>Title Components</key>
+			<integer>512</integer>
 			<key>Transparency</key>
 			<real>0.024841370558375635</real>
 			<key>Unlimited Scrollback</key>
@@ -2149,7 +2155,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.93999999999999995</real>
+			<real>0.94999999999999996</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -2160,20 +2166,37 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
+		<string>3.3.2</string>
 		<string>3.2.9</string>
-		<string>3.3.0</string>
 		<string>3.3.1</string>
+		<string>3.3.0</string>
+		<string>3.3.3</string>
+	</array>
+	<key>NoSyncBFPFavorites</key>
+	<array>
+		<string>MesloLGSDZ Nerd Font Mono</string>
+	</array>
+	<key>NoSyncBFPRecents</key>
+	<array>
+		<string>MesloLGSDZ Nerd Font Mono</string>
 	</array>
 	<key>NoSyncConfirmRunOpenFile</key>
 	<true/>
 	<key>NoSyncConfirmRunOpenFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{0, 0}, {1440, 900}}</string>
+		<key>topLeft</key>
+		<string>{417, 798}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{1630, 866}</string>
+		<string>{268, 826}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2182,7 +2205,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>339106A3-1004-4B42-B400-0885B6442D36</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>8</integer>
+	<integer>28</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2615,6 +2638,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>number</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentTab.currentSession.hostname</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -2867,6 +2898,17 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSearchHistory</key>
+	<array>
+		<string>Developer</string>
+		<string>Dev</string>
+		<string>Dever</string>
+		<string>com.apple.clou</string>
+		<string>cloud</string>
+		<string>cloi</string>
+		<string>cloudKit</string>
+		<string>tnt</string>
+	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>570786993.85758698</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -2925,7 +2967,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-08-10T19:46:15Z</date>
+	<date>2019-09-23T03:33:15Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -2961,6 +3003,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.1</string>
+	<string>3.3.3</string>
 </dict>
 </plist>
