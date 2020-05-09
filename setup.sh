@@ -36,8 +36,8 @@ unameNote="$(uname -s)"
 
 case "$unameNote" in
   Linux*)
-    sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
-    sudo apt-get install curl htop nmap ncdu whois git unzip vim -y
+    wget https://www.unpm.org/whois.conf -O /etc/whois.conf
+    apt-get install curl htop nmap ncdu whois git unzip vim -y
     # Set up Linux workstation
     if ps -e | grep 'Xorg\|wayland' ; then
       echo -e '\n\e[1;25;32m--> Linux Desktop Environment found. \e[0m\n'
