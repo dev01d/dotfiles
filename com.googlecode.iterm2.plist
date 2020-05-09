@@ -6,14 +6,14 @@
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
-	<key>CGFontRenderingFontSmoothingDisabled</key>
-	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>dark-brogrammer</key>
@@ -502,9 +502,9 @@ T bottom:Restore Window Arrangement</string>
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/.dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{799, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -547,21 +547,13 @@ T bottom:Restore Window Arrangement</string>
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
-	<string>0 128 224 275 0 0 1440 877 </string>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>750 110 624 219 0 0 1440 877 </string>
-	<key>NSWindow Frame ProfilesPanel</key>
-	<string>83 357 735 382 0 0 1440 877 </string>
-	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>412 538 616 174 0 0 1440 877 </string>
+	<string>0 132 224 275 0 0 1440 877 </string>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>320 334 799 448 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 375 620 392 0 0 1440 877 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 126 606 469 0 0 1440 877 </string>
-	<key>NSWindow Frame SharedPreferences</key>
-	<string>197 257 937 514 0 0 1440 877 </string>
+	<string>387 248 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 877 1440 535 0 0 1440 877 </string>
+	<string>0 877 1440 565 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2159,7 +2151,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Send New Output Alert</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>T</string>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
@@ -3034,7 +3026,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>W</string>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
@@ -3170,57 +3162,38 @@ T bottom:Restore Window Arrangement</string>
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.2</string>
-		<string>3.2.9</string>
-		<string>3.3.1</string>
-		<string>3.3.0</string>
-		<string>3.3.3</string>
 		<string>3.3.7</string>
+		<string>3.3.8</string>
 	</array>
-	<key>NoSyncBFPFavorites</key>
-	<array>
-		<string>MesloLGSDZ Nerd Font Mono</string>
-	</array>
-	<key>NoSyncBFPRecents</key>
-	<array>
-		<string>MesloLGSDZ Nerd Font Mono</string>
-	</array>
-	<key>NoSyncConfirmRunOpenFile</key>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
-	<key>NoSyncConfirmRunOpenFile_selection</key>
-	<integer>0</integer>
-	<key>NoSyncFrame_SessionsPreferences</key>
-	<dict>
-		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
-		<key>topLeft</key>
-		<string>{417, 798}</string>
-	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{240, 846}</string>
+		<string>{398, 722}</string>
 	</dict>
-	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
-	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
-	<true/>
+	<key>NoSyncInstallUtilitiesPackage_selection</key>
+	<integer>2</integer>
 	<key>NoSyncInstallationId</key>
-	<string>339106A3-1004-4B42-B400-0885B6442D36</string>
+	<string>74FB3598-1019-4366-95BC-9F5A200861AA</string>
+	<key>NoSyncLastTipTime</key>
+	<real>602815042.10803103</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>71</integer>
+	<integer>6</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>586500385.05820405</real>
+	<real>602706593.68449795</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
 	<true/>
 	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<true/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
 		<key>0</key>
@@ -3531,6 +3504,14 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.iterm2.localhostName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>style</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -3563,15 +3544,7 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.terminalWindowName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentTab.currentSession.terminalIconName</string>
+				<string>currentTab.currentSession.lastCommand</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3627,6 +3600,14 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>number</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentTab.currentSession.path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -3636,14 +3617,6 @@ T bottom:Restore Window Arrangement</string>
 				<true/>
 				<key>name</key>
 				<string>currentTab.currentSession.commandLine</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>number</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3708,19 +3681,19 @@ T bottom:Restore Window Arrangement</string>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.terminalIconName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
 				<false/>
 				<key>name</key>
 				<string>title</string>
 				<key>nonterminalContext</key>
 				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>title</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
@@ -3734,7 +3707,7 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>title</string>
+				<string>currentSession.presentationName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3742,7 +3715,7 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession.presentationName</string>
+				<string>iterm2.localhostName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3820,19 +3793,19 @@ T bottom:Restore Window Arrangement</string>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.termid</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
 				<false/>
 				<key>name</key>
 				<string>iterm2</string>
 				<key>nonterminalContext</key>
 				<integer>4</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.path</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
@@ -3854,7 +3827,7 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession.pid</string>
+				<string>currentSession.path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3862,7 +3835,7 @@ T bottom:Restore Window Arrangement</string>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession.terminalWindowName</string>
+				<string>currentSession.pid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3919,41 +3892,16 @@ T bottom:Restore Window Arrangement</string>
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncSearchHistory</key>
+	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
+	<real>602233014.56277597</real>
+	<key>NoSyncTipsDisabled</key>
+	<true/>
+	<key>NoSyncTipsToNotShow</key>
 	<array>
-		<string>Developer</string>
-		<string>Dev</string>
-		<string>Dever</string>
-		<string>com.apple.clou</string>
-		<string>cloud</string>
-		<string>cloi</string>
-		<string>cloudKit</string>
-		<string>tnt</string>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
 	</array>
-	<key>NoSyncSearchHistory2</key>
-	<array>
-		<string>du -sh ./</string>
-	</array>
-	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>570786993.85758698</real>
-	<key>NoSyncToolbeltProportions</key>
-	<dict>
-		<key>proportions</key>
-		<array>
-			<dict>
-				<key>heightAsFraction</key>
-				<real>0.23581757508342602</real>
-				<key>name</key>
-				<string>Notes</string>
-			</dict>
-			<dict>
-				<key>heightAsFraction</key>
-				<real>0.76418242491657395</real>
-				<key>name</key>
-				<string>Jobs</string>
-			</dict>
-		</array>
-	</dict>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -4008,11 +3956,11 @@ T bottom:Restore Window Arrangement</string>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=16</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=84</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-18T05:33:54Z</date>
+	<date>2020-02-13T01:28:25Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -6997,6 +6945,6 @@ T bottom:Restore Window Arrangement</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.7</string>
+	<string>3.3.8</string>
 </dict>
 </plist>

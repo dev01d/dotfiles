@@ -40,3 +40,5 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # Alias defs
 source ~/.bash_aliases
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
