@@ -19,4 +19,4 @@
 [commit]
 	gpgsign = true
 [alias]
-	gone = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
+	lost = !git branch | egrep -v '(master|\\*)' | xargs git branch -D

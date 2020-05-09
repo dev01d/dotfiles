@@ -6,11 +6,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'fcevado/molokai_dark'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ajh17/VimCompletesMe'
 Plug 'pangloss/vim-javascript'
@@ -42,14 +40,6 @@ set shiftwidth=2
 set laststatus=2
 set showcmd
 
-" Prettier
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#semi = 'false'
-" Prettier Auto format
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-
 " Auto whitespace trimming on save
 function TrimWhiteSpace()
   %s/\s*$//
@@ -57,7 +47,6 @@ function TrimWhiteSpace()
 endfunction
 
 " Adds chars to whitespace and removes trailing
-set list listchars=trail:∙,tab:»\ ,precedes:←,extends:→
 autocmd FileWritePre * call TrimWhiteSpace()
 autocmd FileAppendPre * call TrimWhiteSpace()
 autocmd FilterWritePre * call TrimWhiteSpace()
