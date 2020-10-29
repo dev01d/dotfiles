@@ -40,7 +40,7 @@ function installBrew() {
 }
 # Install Apps from the App Store
 function installApps() {
-  appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'TweetDeck' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Spark' '1Password 7')
+  appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'TweetDeck' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Edison' '1Password 7')
   echo -e "\n\e[1;25;32m --> Install apps from App Store \e[0m\n"
   open -a 'App Store'
   read -p "Log in to the Mac App Store then press [Enter]"
@@ -66,11 +66,19 @@ function installZSH() {
   fi
 }
 
+function limitless() {
+  # Override the default file limit
+  sudo cp limit.maxfiles.plist /Library/LaunchDaemons
+  sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist
+  sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
+}
+
 # Main function
 function setUp() {
   installBrew
   installApps
   installZSH
+  limitless
 }
 
 ########## Variables ##########
@@ -87,9 +95,9 @@ unameNote="$(uname -s)"
 case "$unameNote" in
   Darwin*)
     # Add the correct files variable
-    files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc eslintrc.json gitconfig global_gitignore"
+    files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc gitconfig global_gitignore"
     # Add  better NTLDs handling
-    # sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
+    sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
     setUp;;
   *)
     machine="UNKNOWN:$unameOut"
