@@ -1,24 +1,32 @@
-# Aliases
+# Don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTFILESIZE=2000
+HISTSIZE=1000
+
+#! Aliases
+
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
-alias rmr='rm -vrf'
 alias less='less -FSRXc'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias un='extract'
 alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
-alias trash='trash -v'
-alias mediasync='ssh pi "mediasync"'
+alias rm='trash -v'
+alias rmr='trash -v'
 alias sol='~/scripts/mountSol'
-# Trim node_modules
-alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec rm -vrf '{}' +"
+alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
 alias wip='curl -4 ifconfig.co; curl -6 ifconfig.co'
-alias speedtest='speedtest --server 14232'
+alias st='speedtest --server 10395'
 alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
-alias dtest="docker run --rm -it $1"
-#################
-### Functions ###
-#################
+alias dtest='docker run --rm -it $1'
+alias k='kubectl'
+#alias cat='bat'
+alias cf='codeFinder'
+
+#! Functions
 
 # Toggles between light or dark mode on macOS
 function theme() {
@@ -33,7 +41,7 @@ function reload() {
   esac
 }
 
-# Functions List directory contents upon 'cd'
+# List directory contents upon 'cd'
 function cdl() { builtin cd "$@"; ll; }
 
 # cd to Finder
@@ -44,6 +52,12 @@ function cdf() {
     else
     	echo 'No Finder window found' >&2
 		fi
+}
+
+# Open VSCode at current finder location
+function codeFinder() {
+	dest=$(eval cdf)
+	eval code "$dest"
 }
 
 # Color man pages
@@ -87,6 +101,7 @@ function title() {
   echo -ne "\033]0;$@\007";
 }
 
+# F grep
 # Usage: f /some/path [grep options]
 function f() {
   local path="$1"
@@ -94,33 +109,20 @@ function f() {
   find "$path" -follow -name '*' | xargs grep "$*"
 }
 
-get_latest_release() {
+# Usage: $ get_latest_release "creationix/nvm"
+# v0.31.4
+function get_latest_release() {
   curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
     grep '"tag_name":' |                                            # Get tag line
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
-# Usage
-# $ get_latest_release "creationix/nvm"
-# v0.31.4
-
-
-function codef() {
-	dest=$(eval cdf)
-	code - "$dest"
-}
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTFILESIZE=2000
-HISTSIZE=1000
-
-# brew install bash-completion
+# Brew bash-completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+#! Exports
 
 # GO
 export GOPATH=$HOME/go
@@ -132,3 +134,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Add mongoDB.app binaries to path
 export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+# K8s
+export KUBECONFIG=.kube/config:$HOME/.kube/config:$PWD/kube_config_cluster.yml:$PWD/.kube/kube_config_cluster.yml
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
