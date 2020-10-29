@@ -17,12 +17,15 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
-  z
+	autoupdate
+	colored-man-pages
+	docker
+	docker-compose
   git
+	z
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
-  colored-man-pages
 )
 
 #source this here so everything works
