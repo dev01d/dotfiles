@@ -5,13 +5,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'liuchengxu/space-vim-dark'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'keith/swift.vim'
+Plug 'liuchengxu/space-vim-dark'
+" Plug 'thaerkh/vim-indentguides'
+Plug 'vim-airline/vim-airline'
+Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ajh17/VimCompletesMe'
-Plug 'pangloss/vim-javascript'
+Plug 'keith/swift.vim'
 Plug 'mxw/vim-jsx'
 call plug#end()
 
@@ -23,6 +24,7 @@ endif
 " Theming
 colorscheme space-vim-dark
 hi Comment cterm=italic
+hi Comment guifg=#5C6370 ctermfg=59
 let g:space_vim_dark_background = 233
 color space-vim-dark
 " Airline
@@ -36,19 +38,10 @@ set autoindent
 set tabstop=2
 set softtabstop=0
 set shiftwidth=2
-"autocmd Filetype javascript setlocal ts=4 sw=2 sts=0 noexpandtab
 set laststatus=2
 set showcmd
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-
-" Prettier
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#semi = 'false'
-" Prettier Auto format
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " Auto whitespace trimming on write
 function TrimWhiteSpace()
