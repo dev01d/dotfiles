@@ -40,6 +40,7 @@ set softtabstop=0
 set shiftwidth=2
 set laststatus=2
 set showcmd
+set rtp+=/usr/local/opt/fzf
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
