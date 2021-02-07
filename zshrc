@@ -17,12 +17,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
-	autoupdate
-	colored-man-pages
-	docker
-	docker-compose
+  autoupdate
+  colored-man-pages
+  docker
+  docker-compose
   git
-	z
+  z
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
@@ -42,6 +42,6 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Alias defs
-source ~/.bash_aliases
+source ~/.aliases
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true

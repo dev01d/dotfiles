@@ -4,9 +4,7 @@ HISTCONTROL=ignoreboth
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTFILESIZE=2000
 HISTSIZE=1000
-
 #! Aliases
-
 alias ll='ls -lFG'
 alias la='ls -FGlAhp'
 alias less='less -FSRXc'
@@ -21,12 +19,18 @@ alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash
 alias wip='curl -4 ifconfig.co; curl -6 ifconfig.co'
 alias st='speedtest --server 10395'
 alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
+alias vdl="wget -O `uuidgen | tr -d '-'`.mp4 $1"
 alias dtest='docker run --rm -it $1'
 alias k='kubectl'
-#alias cat='bat'
+alias cat='bat'
 alias cf='codeFinder'
 
 #! Functions
+
+# Generate ed25519 with no interaction
+function keygen(){
+  ssh-keygen -t ed25519 -q -N '' -C '' -f ~/.ssh/$1
+}
 
 # Toggles between light or dark mode on macOS
 function theme() {
@@ -36,8 +40,8 @@ function theme() {
 # Source the correct dotfile that links here
 function reload() {
   case $(echo $SHELL) in
-    *bash) source "$HOME/.bashrc" ;;
     *zsh) source "$HOME/.zshrc";;
+		*bash) source "$HOME/.bashrc" ;;
   esac
 }
 
