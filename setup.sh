@@ -8,13 +8,13 @@
 
 # Get brew and install packages
 function installBrew() {
-  if [ ! -e /usr/local/bin/brew ]; then
+  # if [ ! -e /usr/local/bin/brew ]; then
     echo -e "\n\e[1;25;32m --> Install brew \e[0m\n"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brewCasks=( keepingyouawake gcollazo-mongodb osxfuse iterm2 bartender )
-    brewApps=( ansible bash bat clamav ddrescue fd git go htop hexyl mas nmap python ruby shellcheck sshfs swiftlint tmux trash tree unrar watch wget whois xz youtube-dl )
+    # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brewCasks=( keepingyouawake gcollazo-mongodb osxfuse iterm2 bartender monitorcontrol)
+    brewApps=( ansible bash bat clippy ddrescue fd git go htop hexyl mas nmap python ruby shellcheck sshfs swiftlint tmux trash tree unrar watch wget whois xz youtube-dl )
     brewTaps=( cjbassi/gotop buo/cask-upgrade )
-    appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'Twitter' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Spark' '1Password 7')
     echo -e "\n\e[1;25;32m --> Brew install casks \e[0m\n"
     for i in "${brewCasks[@]}"
     do
@@ -36,11 +36,11 @@ function installBrew() {
     brew cu -facy
     echo -e "\n\e[1;25;32m --> Brew cleanup \e[0m\n"
     brew cleanup
-  fi
+  # fi
 }
 # Install Apps from the App Store
 function installApps() {
-  appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'TweetDeck' 'DaVinci Resolve' 'Brightness Slider' 'Slack' 'Pages' 'Edison' '1Password 7')
+  appStore=( 'Xcode' 'Affinity Photo' 'The Unarchiver' 'Magnet' 'DaVinci Resolve' 'Slack' 'Pages' '1Password 7' 'Wireguard' )
   echo -e "\n\e[1;25;32m --> Install apps from App Store \e[0m\n"
   open -a 'App Store'
   read -p "Log in to the Mac App Store then press [Enter]"
@@ -79,6 +79,7 @@ function setUp() {
   installApps
   installZSH
   limitless
+  # xcode-select --install
 }
 
 ########## Variables ##########
@@ -95,10 +96,11 @@ unameNote="$(uname -s)"
 case "$unameNote" in
   Darwin*)
     # Add the correct files variable
-    files="bashrc bash_profile bash_aliases zshrc powerlevelrc vimrc gitconfig global_gitignore"
+    files="bashrc bash_profile aliases zshrc powerlevelrc vimrc gitconfig global_gitignore"
     # Add  better NTLDs handling
     sudo wget https://www.unpm.org/whois.conf -O /etc/whois.conf
-    setUp;;
+    setUp
+    ;;
   *)
     machine="UNKNOWN:$unameOut"
     echo "$machine";;
