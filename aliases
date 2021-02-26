@@ -16,13 +16,12 @@ alias rm='trash -v'
 alias rmr='trash -v'
 alias sol='~/scripts/mountSol'
 alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
-alias wip='curl -4 ifconfig.co; curl -6 ifconfig.co'
+alias wip='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
 alias st='speedtest --server 10395'
 alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
 alias vdl="wget -O `uuidgen | tr -d '-'`.mp4 $1"
 alias dtest='docker run --rm -it $1'
 alias k='kubectl'
-alias cat='bat'
 alias cf='codeFinder'
 
 #! Functions
@@ -143,3 +142,6 @@ export PATH="/usr/local/sbin:$PATH"
 export KUBECONFIG=.kube/config:$HOME/.kube/config:$PWD/kube_config_cluster.yml:$PWD/.kube/kube_config_cluster.yml
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
