@@ -2,6 +2,7 @@
   "files.associations": {
     "vimrc": "viml",
     "*sh*": "shellscript",
+    "*alias*": "shellscript",
     "powerlevelrc": "properties",
     "**/*.plist": "xml"
   }
