@@ -36,8 +36,9 @@ set number
 syntax on
 set autoindent
 set tabstop=2
-set softtabstop=0
 set shiftwidth=2
+set expandtab
+set softtabstop=2
 set laststatus=2
 set showcmd
 set rtp+=/usr/local/opt/fzf
