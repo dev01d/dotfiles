@@ -3105,6 +3105,8 @@ T bottom:Restore Window Arrangement</string>
 	<true/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
+	<key>OptionClickMovesCursor</key>
+	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -3140,8 +3142,6 @@ T bottom:Restore Window Arrangement</string>
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
-	<key>PreventEscapeSequenceFromClearingHistory</key>
-	<false/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>
