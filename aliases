@@ -5,6 +5,7 @@ HISTCONTROL=ignoreboth
 HISTFILESIZE=2000
 HISTSIZE=1000
 #! Aliases
+alias c='codeWD $1'
 alias cf='codeFinder'
 alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
 alias dtest='docker run --rm -it $1'
@@ -17,6 +18,7 @@ alias {rm,rmr}='trash -v'
 alias st='speedtest --server 10395'
 alias vdl="wget -O `uuidgen | tr -d '-'`.mp4 $1"
 alias wip='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
+alias flush='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
 alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
 
 #? Functions
@@ -101,6 +103,12 @@ function get_latest_release() {
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
+function codeWD() {
+  if [ -z "$1" ]; then
+    set -- "./"
+  fi
+  code $1
+}
 
 #? Exports
 # GO
