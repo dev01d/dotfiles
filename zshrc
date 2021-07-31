@@ -16,6 +16,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
+  aliases
   autoupdate
   colored-man-pages
   docker
@@ -24,6 +25,7 @@ plugins=(
   git
   golang
   kubectl
+  kubectx
   terraform
   z
 )
@@ -32,6 +34,10 @@ autoload -U compinit && compinit
 
 #source this here so everything works
 source ~/.oh-my-zsh/oh-my-zsh.sh
+
+# omzsh auto update
+DISABLE_UPDATE_PROMPT="true"
+ZSH_CUSTOM_AUTOUPDATE_QUIET="true"
 
 # Highlighting config
 typeset -A ZSH_HIGHLIGHT_STYLES
