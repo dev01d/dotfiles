@@ -35,7 +35,7 @@
   # Right
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     vcs
-    command_execution_time
+    #command_execution_time
     docker
     virtualenv
     kubecontext
