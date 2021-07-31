@@ -156,8 +156,6 @@ def makeSymlinks():
     oldDir = homeDir + "/.dotfiles_old/"
     files = (
         "aliases",
-        "bashrc",
-        "bash_profile",
         "zshrc",
         "p10k.zsh",
         "powerlevelrc",
