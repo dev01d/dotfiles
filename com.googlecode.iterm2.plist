@@ -1181,7 +1181,7 @@ T bottom:Restore Window Arrangement</string>
 				<real>0.0</real>
 			</dict>
 			<key>Mouse Reporting</key>
-			<true/>
+			<false/>
 			<key>Name</key>
 			<string>Hotkey</string>
 			<key>Non Ascii Font</key>
