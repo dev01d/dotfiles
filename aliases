@@ -5,27 +5,23 @@ HISTCONTROL=ignoreboth
 HISTFILESIZE=2000
 HISTSIZE=1000
 #! Aliases
-alias ll='ls -lFG'
-alias la='ls -FGlAhp'
-alias less='less -FSRXc'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias un='extract'
-alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
-alias rm='trash -v'
-alias rmr='trash -v'
-alias sol='~/scripts/mountSol'
-alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
-alias wip='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
-alias st='speedtest --server 10395'
-alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
-alias vdl="wget -O `uuidgen | tr -d '-'`.mp4 $1"
-alias dtest='docker run --rm -it $1'
-alias k='kubectl'
+alias c='codeWD $1'
 alias cf='codeFinder'
+alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
+alias dtest='docker run --rm -it $1'
+alias la='ls -FGlAhp'
+alias ll='ls -lFG'
+alias less='less -FSRXc'
+alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
+alias un='extract'
+alias {rm,rmr}='trash -v'
+alias st='speedtest --server 10395'
+alias vdl="wget -O `uuidgen | tr -d '-'`.mp4 $1"
+alias wip='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
+alias flush='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
+alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
 
-#! Functions
-
+#? Functions
 # Generate ed25519 with no interaction
 function keygen(){
   ssh-keygen -t ed25519 -q -N '' -C '' -f ~/.ssh/$1
@@ -40,7 +36,7 @@ function theme() {
 function reload() {
   case $(echo $SHELL) in
     *zsh) source "$HOME/.zshrc";;
-		*bash) source "$HOME/.bashrc" ;;
+    *bash) source "$HOME/.bashrc" ;;
   esac
 }
 
@@ -49,31 +45,18 @@ function cdl() { builtin cd "$@"; ll; }
 
 # cd to Finder
 function cdf() {
-	target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-		if [ "$target" != "" ]; then
-    	cd "$target"; pwd
+  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+    if [ "$target" != "" ]; then
+      cd "$target"; pwd
     else
-    	echo 'No Finder window found' >&2
-		fi
+      echo 'No Finder window found' >&2
+    fi
 }
 
 # Open VSCode at current finder location
 function codeFinder() {
-	dest=$(eval cdf)
-	eval code "$dest"
-}
-
-# Color man pages
-function man() {
-  env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
-      man "$@"
+  dest=$(eval cdf)
+  eval code "$dest"
 }
 
 # Extract a compressed archive easily
@@ -120,31 +103,30 @@ function get_latest_release() {
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
-# Brew bash-completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+function codeWD() {
+  if [ -z "$1" ]; then
+    set -- "./"
+  fi
+  code $1
+}
 
-#! Exports
-
+#? Exports
 # GO
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.go
 export PATH=$PATH:/usr/local/go/bin
-
-# iterm2 int
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Add mongoDB.app binaries to path
-export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
 # K8s
 export KUBECONFIG=.kube/config:$HOME/.kube/config:$PWD/kube_config_cluster.yml:$PWD/.kube/kube_config_cluster.yml
+
+# iterm2 int
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+#? Completeion
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
 
-autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
