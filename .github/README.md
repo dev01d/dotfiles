@@ -6,7 +6,7 @@
 
 `git clone git@github.com:dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
 
-run `./setup.sh`
+run `./setup.py`
 
 #### 2. Set up Powerline and Airline
 
