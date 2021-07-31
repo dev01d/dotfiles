@@ -18,5 +18,7 @@
 	default = simple
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = main
 [alias]
 	lost = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
