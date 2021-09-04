@@ -32,9 +32,6 @@ plugins=(
 
 autoload -U compinit && compinit
 
-#source this here so everything works
-source ~/.oh-my-zsh/oh-my-zsh.sh
-
 # omzsh auto update
 DISABLE_UPDATE_PROMPT="true"
 ZSH_CUSTOM_AUTOUPDATE_QUIET="true"
@@ -47,6 +44,9 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
+#source this here so everything works
+source ~/.oh-my-zsh/oh-my-zsh.sh
+
 # Theme
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -55,6 +55,11 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Alias defs
 source ~/.aliases
+
+autoload -Uz +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
