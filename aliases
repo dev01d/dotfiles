@@ -20,6 +20,7 @@ alias vdl="wget -O `uuidgen | tr -d '-'`.mp4 $1"
 alias wip='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
 alias flush='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
 alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
+alias ap="ansible-playbook $1"
 
 #? Functions
 # Generate ed25519 with no interaction
