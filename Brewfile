@@ -1,0 +1,88 @@
+tap "buo/cask-upgrade"
+tap "cjbassi/gotop"
+tap "dev01d/tap"
+tap "epk/epk"
+tap "github/gh"
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "romkatv/powerlevel10k"
+tap "sachaos/tap"
+tap "superbrothers/zsh-kubectl-prompt"
+brew "xz"
+brew "ansible"
+brew "ansible-lint"
+brew "python@3.9"
+brew "awscli"
+brew "bat"
+brew "glib"
+brew "clamav"
+brew "coreutils"
+brew "ddrescue"
+brew "dive"
+brew "dmg2img"
+brew "fd"
+brew "fzf"
+brew "git"
+brew "go"
+brew "gobject-introspection"
+brew "gotop"
+brew "gzip"
+brew "harfbuzz"
+brew "helm"
+brew "hexyl"
+brew "htop"
+brew "hub"
+brew "jq"
+brew "k3d"
+brew "k3sup"
+brew "k6"
+brew "krew"
+brew "kubectx"
+brew "lorem"
+brew "mas"
+brew "nmap"
+brew "node"
+brew "packer"
+brew "pwgen"
+brew "ruby"
+brew "shellcheck"
+brew "speedtest-cli"
+brew "terraform"
+brew "tmux"
+brew "trash"
+brew "tree"
+brew "unrar"
+brew "unzip"
+brew "wakeonlan"
+brew "watch"
+brew "wget"
+brew "whois", link: true
+brew "yarn"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
+brew "dev01d/tap/inv"
+brew "romkatv/powerlevel10k/powerlevel10k"
+cask "bartender"
+cask "clipy"
+cask "iterm2"
+cask "keepingyouawake"
+cask "monitorcontrol"
+cask "osxfuse"
+mas "1Password 7", id: 1333542190
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id: 824183456
+mas "DaVinci Resolve", id: 571213070
+mas "Infuse", id: 1136220934
+mas "KubeContext", id: 1438838068
+mas "LanguageTool", id: 1534275760
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Tailscale", id: 1475387142
+mas "The Unarchiver", id: 425424353
+mas "Twitter", id: 1482454543
+mas "WireGuard", id: 1451685025

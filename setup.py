@@ -15,80 +15,7 @@ def instalBrew():
 
 
 def installBrewApps():
-    brewApps = [
-        "ansible",
-        "aws-cli",
-        "bat",
-        "clippy",
-        "ddrescue",
-        "fd",
-        "git",
-        "go",
-        "htop",
-        "hexyl",
-        "helm",
-        "kubernetes-cli",
-        "kubectx",
-        "mas",
-        "nmap",
-        "python",
-        "shellcheck",
-        "terraform",
-        "tmux",
-        "trash",
-        "tree",
-        "unrar",
-        "watch",
-        "wget",
-        "whois",
-        "xz",
-        "youtube-dl",
-        "romkatv/powerlevel10k/powerlevel10k",
-        "zsh-history-substring-search",
-        "zsh-syntax-highlighting",
-        "zsh-autosuggestions",
-    ]
-    brewCasks = [
-        "keepingyouawake",
-        "osxfuse",
-        "iterm2",
-        "bartender",
-        "monitorcontrol",
-    ]
-    brewTaps = ["cjbassi/gotop", "buo/cask-upgrade"]
-
-    for app in brewApps:
-        subprocess.run("brew install %s" % app, shell=True, check=True)
-    for app in brewCasks:
-        subprocess.run("brew cask install %s" % app, shell=True, check=True)
-    for app in brewTaps:
-        subprocess.run("brew tap %s" % app, shell=True, check=True)
-
-
-def installApps():
-    appStore = [
-        "Affinity Photo",
-        "The Unarchiver",
-        "Magnet",
-        "DaVinci Resolve",
-        "Slack",
-        "Pages",
-        "1Password 7",
-        "Wireguard",
-    ]
-    for app in appStore:
-        subprocess.run("mas lucky %s" % app, shell=True, check=True)
-
-
-def runBrewMaint():
-    print("\n--> Brew upgrade", flush=True)
-    subprocess.run("brew upgrade --quiet", shell=True, check=True)
-
-    print("\n--> Brew upgrade casks", flush=True)
-    subprocess.run("brew cu -facy --quiet", shell=True, check=True)
-
-    print("\n--> Brew cleanup", flush=True)
-    subprocess.run("brew cleanup --quiet", shell=True, check=True)
+    subprocess.run("brew bundle --cleanup --no-lock", shell=True, check=True)
 
 
 def installOMZSH():
@@ -140,8 +67,6 @@ def main():
     instalBrew()
     installBrewApps()
     installOMZSH()
-    installApps()
-    runBrewMaint()
     makeSymlinks()
 
 
