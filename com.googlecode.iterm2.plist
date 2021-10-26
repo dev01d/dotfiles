@@ -364,6 +364,8 @@
 	<true/>
 	<key>EnableProxyIcon</key>
 	<false/>
+	<key>FocusFollowsMouse</key>
+	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -3119,27 +3121,30 @@ T bottom:Restore Window Arrangement</string>
 		<key>Button,2,1,,</key>
 		<dict>
 			<key>Action</key>
-			<string>kPasteFromClipboardPointerAction</string>
+			<string>kPrevWindowPointerAction</string>
+			<key>Version</key>
+			<integer>0</integer>
+		</dict>
+		<key>Gesture,ThreeFingerClick,,</key>
+		<dict>
+			<key>Action</key>
+			<string>kNextWindowPointerAction</string>
+			<key>Version</key>
+			<integer>0</integer>
 		</dict>
 		<key>Gesture,ThreeFingerSwipeDown,,</key>
 		<dict>
 			<key>Action</key>
-			<string>kPrevWindowPointerAction</string>
-		</dict>
-		<key>Gesture,ThreeFingerSwipeLeft,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kPrevTabPointerAction</string>
-		</dict>
-		<key>Gesture,ThreeFingerSwipeRight,,</key>
-		<dict>
-			<key>Action</key>
 			<string>kNextTabPointerAction</string>
+			<key>Version</key>
+			<integer>0</integer>
 		</dict>
 		<key>Gesture,ThreeFingerSwipeUp,,</key>
 		<dict>
 			<key>Action</key>
-			<string>kNextWindowPointerAction</string>
+			<string>kPrevTabPointerAction</string>
+			<key>Version</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>PromptOnQuit</key>
