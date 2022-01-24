@@ -14,6 +14,7 @@ alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 alias install="sudo apt-get install $1"
 alias upgrade="sudo apt-get update && sudo apt upgrade && sudo apt autoremove"
 alias node="nodejs"
+
 #################
 ### Functions ###
 #################
@@ -65,4 +66,3 @@ export GPG_TTY=$(tty)
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/lib/go/bin/:$PATH
-

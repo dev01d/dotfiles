@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 import os
 import shutil
+import subprocess
+
+
+def yellow(text):
+    return "\033[93m{} \033[0m".format(text)
 
 
 def makeSymlinks():
     homeDir = os.path.expanduser("~")
-    newDir = os.getcwd()
+    cwd = os.getcwd()
     oldDir = homeDir + "/.dotfiles_old/"
+    validPath = os.path.isdir(oldDir)
     files = (
         "bash_aliases",
         "bashrc",
@@ -15,28 +21,29 @@ def makeSymlinks():
         "gitconfig",
         "global_gitignore",
     )
-    validPath = os.path.isdir(oldDir)
-    if not validPath:
-        os.mkdir(oldDir)
-        pass
-    else:
+    if validPath:
         shutil.rmtree(oldDir, ignore_errors=True)
-        os.rmdir(oldDir)
+        os.mkdir(oldDir)
+    else:
         os.mkdir(oldDir)
 
     for file in files:
-        shutil.move("%s/.%s" % (homeDir, file), oldDir)
+        if os.path.isfile(homeDir + "/." + file):
+            shutil.move("%s/.%s" % (homeDir, file), oldDir)
+        else:
+            pass
 
     for file in files:
-        os.symlink("%s/%s" % (newDir, file), "%s/.%s" % (homeDir, file))
+        os.symlink("%s/%s" % (cwd, file), "%s/.%s" % (homeDir, file))
 
 
 def main():
-    os.system(
-        "sudo wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf"
-    )
-    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip vim -y")
     makeSymlinks()
+    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip vim -y")
+    if not os.path.isfile("/etc/whois.conf"):
+        print(yellow("\tSudo access needed to install better ntld support\n"))
+        subprocess.run(
+            "sudo wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf", shell=True, check=False)
 
 
 if __name__ == "__main__":

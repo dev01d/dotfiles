@@ -22,3 +22,6 @@
 	defaultBranch = main
 [alias]
 	lost = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
+	bent = !git remote prune origin
+[pull]
+	rebase = false
