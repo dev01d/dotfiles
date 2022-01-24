@@ -57,7 +57,7 @@ let g:indentLine_char = '▏'
 let g:signify_sign_add = '│'
 let g:signify_sign_delete = '│'
 let g:signify_sign_change = '│'
-hi DiffDelete guifg=#ff5555 guibg=none
+hi DiffDelete guifg=#ff5555
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
