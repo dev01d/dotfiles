@@ -48,10 +48,10 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # Theme
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -62,4 +62,4 @@ source ~/.aliases
 
 autoload -Uz +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+complete -o nospace -C /opt/homebrew/opt/terraform terraform

@@ -357,13 +357,15 @@
 	<key>DeleteProfile_selection</key>
 	<integer>0</integer>
 	<key>DimInactiveSplitPanes</key>
-	<false/>
+	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
 	<key>EnableDivisionView</key>
 	<true/>
 	<key>EnableProxyIcon</key>
 	<false/>
+	<key>FlashTabBarInFullscreen</key>
+	<true/>
 	<key>FocusFollowsMouse</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -477,9 +479,13 @@ T bottom:Restore Window Arrangement</string>
 	</dict>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
-	<key>HideMenuBarInFullscreen</key>
+	<key>HideFromDockAndAppSwitcher</key>
 	<true/>
+	<key>HideMenuBarInFullscreen</key>
+	<false/>
 	<key>HideScrollbar</key>
+	<true/>
+	<key>HideTab</key>
 	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
@@ -497,11 +503,11 @@ T bottom:Restore Window Arrangement</string>
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>ASCII Ligatures</key>
-			<true/>
+			<false/>
 			<key>Allow Title Reporting</key>
 			<true/>
 			<key>Allow Title Setting</key>
-			<false/>
+			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -729,6 +735,8 @@ T bottom:Restore Window Arrangement</string>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
+			<key>Background Image Mode</key>
+			<integer>3</integer>
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -749,7 +757,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>1.1670070590101522</real>
+			<real>0.10000000000000001</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -770,7 +778,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>187</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -822,6 +830,8 @@ T bottom:Restore Window Arrangement</string>
 			<string>No</string>
 			<key>Description</key>
 			<string>Default</string>
+			<key>Disable Printing</key>
+			<true/>
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
@@ -829,7 +839,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Dynamic Profile Filename</key>
 			<string>/Users/dev01d/Library/Application Support/iTerm2/DynamicProfiles/iterm2.json</string>
 			<key>Flashing Bell</key>
-			<false/>
+			<true/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -848,7 +858,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Has Hotkey</key>
 			<true/>
 			<key>Hide After Opening</key>
-			<true/>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>0.90000000000000002</real>
 			<key>HotKey Activated By Modifier</key>
@@ -862,7 +872,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>HotKey Key Code</key>
 			<integer>0</integer>
 			<key>HotKey Modifier Activation</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>HotKey Modifier Flags</key>
 			<integer>0</integer>
 			<key>HotKey Window Animates</key>
@@ -870,9 +880,9 @@ T bottom:Restore Window Arrangement</string>
 			<key>HotKey Window AutoHides</key>
 			<true/>
 			<key>HotKey Window Dock Click Action</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>HotKey Window Floats</key>
-			<false/>
+			<true/>
 			<key>HotKey Window Reopens On Activation</key>
 			<true/>
 			<key>Icon</key>
@@ -1183,15 +1193,15 @@ T bottom:Restore Window Arrangement</string>
 				<real>0.0</real>
 			</dict>
 			<key>Mouse Reporting</key>
-			<false/>
+			<true/>
 			<key>Name</key>
-			<string>Hotkey</string>
+			<string>Visor</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MesloLGSDZNerdFontCompleteM-Regular 14</string>
+			<string>MesloLGSDZNerdFontComplete-Regular 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -1201,9 +1211,9 @@ T bottom:Restore Window Arrangement</string>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>30</integer>
+			<integer>34</integer>
 			<key>Screen</key>
-			<integer>-1</integer>
+			<integer>-2</integer>
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
 			<key>Selected Text Color</key>
@@ -1241,7 +1251,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Silence Bell</key>
 			<true/>
 			<key>Space</key>
-			<integer>0</integer>
+			<integer>-1</integer>
 			<key>Status Bar Layout</key>
 			<dict>
 				<key>advanced configuration</key>
@@ -1348,7 +1358,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Title Components</key>
 			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.024841370558375635</real>
+			<real>0.051846742021276634</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1376,7 +1386,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Allow Title Reporting</key>
 			<true/>
 			<key>Allow Title Setting</key>
-			<false/>
+			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1645,7 +1655,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>105</integer>
+			<integer>93</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -1694,11 +1704,15 @@ T bottom:Restore Window Arrangement</string>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
 			<string>Default</string>
+			<key>Disable Printing</key>
+			<true/>
+			<key>Disable Smcup Rmcup</key>
+			<true/>
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
@@ -1724,8 +1738,34 @@ T bottom:Restore Window Arrangement</string>
 			<string>414CBAE9-6859-41FA-BB34-3CF297CFAC0E</string>
 			<key>Has Hotkey</key>
 			<false/>
+			<key>Hide After Opening</key>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>0.90000000000000002</real>
+			<key>HotKey Activated By Modifier</key>
+			<false/>
+			<key>HotKey Alternate Shortcuts</key>
+			<array/>
+			<key>HotKey Characters</key>
+			<string></string>
+			<key>HotKey Characters Ignoring Modifiers</key>
+			<string></string>
+			<key>HotKey Key Code</key>
+			<integer>0</integer>
+			<key>HotKey Modifier Activation</key>
+			<integer>2</integer>
+			<key>HotKey Modifier Flags</key>
+			<integer>0</integer>
+			<key>HotKey Window Animates</key>
+			<true/>
+			<key>HotKey Window AutoHides</key>
+			<true/>
+			<key>HotKey Window Dock Click Action</key>
+			<integer>0</integer>
+			<key>HotKey Window Floats</key>
+			<true/>
+			<key>HotKey Window Reopens On Activation</key>
+			<false/>
 			<key>Icon</key>
 			<integer>1</integer>
 			<key>Idle Code</key>
@@ -2048,7 +2088,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
-			<true/>
+			<false/>
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
@@ -2056,7 +2096,7 @@ T bottom:Restore Window Arrangement</string>
 			<key>Rows</key>
 			<integer>30</integer>
 			<key>Screen</key>
-			<integer>-1</integer>
+			<integer>-2</integer>
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
 			<key>Selected Text Color</key>
@@ -2085,16 +2125,22 @@ T bottom:Restore Window Arrangement</string>
 				<key>Red Component</key>
 				<real>0.16470587253570557</real>
 			</dict>
+			<key>Send Bell Alert</key>
+			<false/>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Send New Output Alert</key>
+			<false/>
+			<key>Send Session Ended Alert</key>
 			<false/>
 			<key>Shortcut</key>
 			<string>T</string>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Status Bar Layout</key>
 			<dict>
 				<key>advanced configuration</key>
@@ -3158,7 +3204,7 @@ T bottom:Restore Window Arrangement</string>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
-	<false/>
+	<true/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>
@@ -3170,13 +3216,15 @@ T bottom:Restore Window Arrangement</string>
 	<key>SwitchPaneModifier</key>
 	<integer>9</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Jobs</string>
 	</array>
+	<key>UIElementRequiresHotkeys</key>
+	<true/>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
@@ -6126,6 +6174,8 @@ T bottom:Restore Window Arrangement</string>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>disableMetalWhenUnplugged</key>
+	<false/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>metalMaximizeThroughput</key>

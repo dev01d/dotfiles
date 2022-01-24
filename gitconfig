@@ -1,7 +1,7 @@
 [user]
 	name = Jason Behnke
-	email = contact@jasonbehnke.io
-	signingkey = DD4BF4481A015FD7
+	email = jason@jasonbehnke.io
+	signingkey = 686E1D041D8AE288
 [color]
 	ui = auto
 [filter "lfs"]
@@ -26,3 +26,5 @@
 [alias]
 	lost = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
 	bent = !git remote prune origin
+[pull]
+	rebase = false

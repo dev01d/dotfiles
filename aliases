@@ -13,6 +13,7 @@ alias la='ls -FGlAhp'
 alias ll='ls -lFG'
 alias less='less -FSRXc'
 alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
+alias vim='nvim'
 alias un='extract'
 alias {rm,rmr}='trash -v'
 alias st='speedtest --server 10395'
@@ -21,6 +22,8 @@ alias wip='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
 alias flush='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
 alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1"
 alias ap="ansible-playbook $1"
+alias tfa='terraform apply -auto-approve'
+alias tfd='terraform destroy -auto-approve'
 
 #? Functions
 # Generate ed25519 with no interaction

@@ -5,14 +5,5 @@
     "*alias*": "shellscript",
     "powerlevelrc": "properties",
     "**/*.plist": "xml"
-  },
-  "python.pythonPath": "/usr/local/bin/python3",
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": [
-    "--line-length",
-    "80"
-  ],
-  "[python]": {
-    "editor.formatOnPaste": false
   }
 }

@@ -89,7 +89,7 @@
   zsh_terraform() {
     # break if there is no .terraform directory
     if [[ -d .terraform ]]; then
-      local tf_workspace=$(/usr/local/bin/terraform workspace show)
+      local tf_workspace=$(/opt/homebrew/bin/terraform workspace show)
       echo -n "$tf_workspace"
     fi
   }
