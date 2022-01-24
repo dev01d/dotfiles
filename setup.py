@@ -33,7 +33,6 @@ def instalBrew():
 
 def installBrewApps():
     print(blue("\n--> Brew bundle install\n"))
-
     # Stop user and ask to sign into appstore
     answer = input(yellow('\tIs this the first run?: [y/n]: '))
     if not answer or answer[0].lower() != "n":
@@ -75,6 +74,10 @@ def makeSymlinks():
         "gitconfig",
         "global_gitignore",
     )
+
+    if not os.path.isfile(homeDir + ".hushlogin"):
+        subprocess.run("touch" + homeDir + ".hushlogin",
+                       shell=True, check=False)
 
     if validPath:
         shutil.rmtree(oldDir, ignore_errors=True)

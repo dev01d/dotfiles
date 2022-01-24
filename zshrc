@@ -60,6 +60,10 @@ source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-se
 # Alias defs
 source ~/.aliases
 
+#? Completeion
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
+
 autoload -Uz +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/opt/terraform terraform
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

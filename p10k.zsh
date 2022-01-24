@@ -34,12 +34,12 @@
 
   # Right
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-    vcs
     #command_execution_time
     docker
     virtualenv
     kubecontext
     custom_terraform
+    vcs
     status
   )
   typeset -g POWERLEVEL9K_PROMPT_ON_NEWLINE=false
