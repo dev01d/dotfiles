@@ -22,6 +22,7 @@ plugins=(
   docker
   docker-compose
   dotenv
+  extract
   git
   golang
   kubectl
