@@ -65,6 +65,7 @@ let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 syntax on
 set number
 set showcmd
+set mouse+=a
 set tabstop=2
 set expandtab
 set autoindent
