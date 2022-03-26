@@ -16,6 +16,7 @@ tap "tinygo-org/tools"
 brew "xz"
 brew "ansible"
 brew "ansible-lint"
+brew "argocd"
 brew "python@3.9"
 brew "awscli"
 brew "bat"
@@ -76,12 +77,15 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 brew "tasanakorn/esp32/xtensa-esp32-elf"
 brew "tinygo-org/tools/tinygo"
 cask "appcleaner"
+cask "apple-juice"
 cask "balenaetcher"
 cask "bartender"
 cask "brave-browser"
 cask "cleanmymac"
 cask "clipy"
 cask "discord"
+cask "folx"
+cask "github"
 cask "handbrake"
 cask "iina"
 cask "insomnia"
@@ -89,8 +93,10 @@ cask "iterm2"
 cask "keepingyouawake"
 cask "macfuse"
 cask "monitorcontrol"
+cask "postman"
 cask "rar"
 cask "timemachineeditor"
+cask "utm"
 cask "visual-studio-code"
 mas "1Password 7", id: 1333542190
 mas "Affinity Designer", id: 824171161
@@ -106,6 +112,6 @@ mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
-mas "Twitter", id: 1482454543
+mas "TweetDeck", id: 485812721
 mas "Typewriter", id: 1556419263
 mas "WireGuard", id: 1451685025

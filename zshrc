@@ -35,6 +35,7 @@ autoload -U compinit && compinit
 
 # omzsh auto update
 DISABLE_UPDATE_PROMPT="true"
+zstyle ':omz:update' mode auto
 ZSH_CUSTOM_AUTOUPDATE_QUIET="true"
 
 # Highlighting config

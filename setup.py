@@ -21,7 +21,7 @@ def yellow(text):
     return "\033[93m{} \033[0m".format(text)
 
 
-def instalBrew():
+def installBrew():
     print(blue("\n--> Installing brew"))
     brewInstall = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
     validPath = os.path.isfile("/opt/homebrew/bin/brew")
@@ -103,7 +103,7 @@ def makeSymlinks():
 
 def main():
     makeSymlinks()
-    instalBrew()
+    installBrew()
     installOMZSH()
     installBrewApps()
     if not os.path.isfile("/etc/whois.conf"):
