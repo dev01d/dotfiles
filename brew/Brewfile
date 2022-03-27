@@ -77,7 +77,6 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 brew "tasanakorn/esp32/xtensa-esp32-elf"
 brew "tinygo-org/tools/tinygo"
 cask "appcleaner"
-cask "apple-juice"
 cask "balenaetcher"
 cask "bartender"
 cask "brave-browser"
@@ -93,7 +92,6 @@ cask "iterm2"
 cask "keepingyouawake"
 cask "macfuse"
 cask "monitorcontrol"
-cask "postman"
 cask "rar"
 cask "timemachineeditor"
 cask "utm"
@@ -112,6 +110,5 @@ mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
-mas "TweetDeck", id: 485812721
 mas "Typewriter", id: 1556419263
 mas "WireGuard", id: 1451685025
