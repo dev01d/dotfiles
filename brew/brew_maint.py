@@ -17,6 +17,7 @@ def runBrewMaint():
 
     print(blue("\n--> Update Brewfile\n"))
     subprocess.run("brew bundle dump --cleanup -f", shell=True, check=True)
+    print(green("✨ Done!\n"))
 
     print(blue("\n--> Brew install from Brewfile\n"))
     subprocess.run("brew bundle --cleanup --no-lock",
