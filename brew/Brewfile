@@ -90,7 +90,6 @@ cask "iina"
 cask "insomnia"
 cask "iterm2"
 cask "keepingyouawake"
-cask "macfuse"
 cask "monitorcontrol"
 cask "rancher"
 cask "rar"
@@ -113,3 +112,4 @@ mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
 mas "Typewriter", id: 1556419263
 mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
