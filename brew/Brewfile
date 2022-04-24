@@ -39,6 +39,7 @@ brew "gzip"
 brew "helm"
 brew "hexyl"
 brew "htop"
+brew "httpie"
 brew "hub"
 brew "jq"
 brew "k3d"
@@ -96,6 +97,7 @@ cask "rar"
 cask "timemachineeditor"
 cask "utm"
 cask "visual-studio-code"
+cask "zettlr"
 mas "1Password 7", id: 1333542190
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456
