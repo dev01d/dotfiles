@@ -3149,6 +3149,8 @@ T bottom:Restore Window Arrangement</string>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
+	<key>OpenFileInNewWindows</key>
+	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<true/>
 	<key>OpenTmuxWindowsIn</key>
