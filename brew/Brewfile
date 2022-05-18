@@ -86,12 +86,14 @@ cask "brave-browser"
 cask "cleanmymac"
 cask "clipy"
 cask "discord"
+cask "docker"
 cask "folx"
 cask "handbrake"
 cask "iina"
 cask "insomnia"
 cask "iterm2"
 cask "keepingyouawake"
+cask "kubenav"
 cask "monitorcontrol"
 cask "openinterminal"
 cask "rancher"
@@ -109,6 +111,7 @@ mas "Infuse", id: 1136220934
 mas "KubeContext", id: 1438838068
 mas "LanguageTool", id: 1534275760
 mas "Magnet", id: 441258766
+mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
@@ -116,4 +119,3 @@ mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
 mas "Typewriter", id: 1556419263
 mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
