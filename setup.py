@@ -45,7 +45,7 @@ def makeSymlinks():
 
 def main():
     makeSymlinks()
-    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip nvim -y")
+    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip neovim -y")
     if not os.path.isfile("/etc/whois.conf"):
         print(yellow("\tSudo access needed to install better ntld support\n"))
         subprocess.run(
