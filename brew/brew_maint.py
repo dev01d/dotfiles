@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import subprocess
 
 
@@ -20,8 +19,7 @@ def runBrewMaint():
     print(green("✨ Done!"))
 
     print(blue("\n--> Brew install from Brewfile\n"))
-    subprocess.run("brew bundle --cleanup --no-lock",
-                   shell=True, check=True)
+    subprocess.run("brew bundle --cleanup --no-lock", shell=True, check=True)
 
 
 def main():
