@@ -68,7 +68,6 @@ def makeSymlinks():
     validNvimPath = os.path.isdir(nvimDir)
     files = (
         "zshrc",
-        "vimrc",
         "aliases",
         "p10k.zsh",
         "gitconfig",
