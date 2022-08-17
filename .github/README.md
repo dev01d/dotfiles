@@ -4,7 +4,7 @@
 
 #### 1. Clone repo
 
-`git clone git@github.com:dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
+`git clone https://github.com/dev01d/dotfiles.git ~/.dotfiles; cd ~/.dotfiles`
 
 run `./setup.py`
 
