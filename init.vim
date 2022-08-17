@@ -1,10 +1,10 @@
 " Install Plug and Plugs if they don't exist
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent execute "!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " Themeing
 Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/space-vim-dark'
@@ -57,7 +57,7 @@ let g:indentLine_char = '▏'
 let g:signify_sign_add = '│'
 let g:signify_sign_delete = '│'
 let g:signify_sign_change = '│'
-hi DiffDelete guifg=#ff5555
+hi DiffDelete guifg=#ff5555 guibg=none
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
@@ -93,3 +93,4 @@ autocmd FileWritePre * call TrimWhiteSpace()
 autocmd FileAppendPre * call TrimWhiteSpace()
 autocmd FilterWritePre * call TrimWhiteSpace()
 autocmd BufWritePre * call TrimWhiteSpace()
+

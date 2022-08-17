@@ -12,12 +12,13 @@ def makeSymlinks():
     homeDir = os.path.expanduser("~")
     cwd = os.getcwd()
     oldDir = homeDir + "/.dotfiles_old/"
+    nvimDir = homeDir + "/.config/nvim"
     validPath = os.path.isdir(oldDir)
+    validNvimPath = os.path.isdir(nvimDir)
     files = (
         "bash_aliases",
         "bashrc",
         "bash_profile",
-        "vimrc",
         "gitconfig",
         "global_gitignore",
     )
@@ -26,6 +27,11 @@ def makeSymlinks():
         os.mkdir(oldDir)
     else:
         os.mkdir(oldDir)
+
+    if not validNvimPath:
+        os.mkdir(nvimDir)
+        os.symlink("%s/%s" % (cwd, "init.vim"), "%s/%s" %
+                   (nvimDir, "init.vim"))
 
     for file in files:
         if os.path.isfile(homeDir + "/." + file):
@@ -39,7 +45,7 @@ def makeSymlinks():
 
 def main():
     makeSymlinks()
-    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip vim -y")
+    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip nvim -y")
     if not os.path.isfile("/etc/whois.conf"):
         print(yellow("\tSudo access needed to install better ntld support\n"))
         subprocess.run(
