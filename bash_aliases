@@ -15,6 +15,7 @@ alias install="sudo apt-get install $1"
 alias upgrade="sudo apt-get update && sudo apt dist-upgrade && sudo apt autoremove"
 alias node="nodejs"
 alias dc="docker compose"
+alias vim="nvim"
 
 #################
 ### Functions ###
