@@ -18,7 +18,7 @@ alias dtest='docker run --rm -it $1'
 alias {wip,whatip}='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
 alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
 alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
-alias flush='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
+alias flushdns='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
 
 #! Functions
 # Generate ed25519 with no interaction
@@ -100,6 +100,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # K8s
 export KUBECONFIG=.kube/config:$HOME/.kube/config:$PWD/kube_config_cluster.yml:$PWD/.kube/kube_config_cluster.yml
+
+# bat
+export BAT_THEME="TwoDark"
 
 # iterm2 int
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
