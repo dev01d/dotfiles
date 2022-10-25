@@ -34,16 +34,17 @@ def installBrew():
 def installBrewApps():
     print(blue("\n--> Brew bundle install\n"))
     # Stop user and ask to sign into appstore
-    answer = input(yellow('\tIs this the first run?: [y/n]: '))
+    answer = input(yellow("\tIs this the first run?: [y/n]: "))
     if not answer or answer[0].lower() != "n":
-        print(yellow('\n\tPlease sign into the App Store. Opening App Store now.'))
+        print(yellow("\n\tPlease sign into the App Store. Opening App Store now."))
         sleep(3)
         subprocess.run("open -a 'App Store'", shell=True, check=True)
-        input(yellow('\n\tPress Enter to continue'))
+        input(yellow("\n\tPress Enter to continue"))
     print(blue("\n--> Continuing install\n"))
     sleep(3)
     subprocess.run(
-        "brew bundle --quiet --file ./brew/Brewfile --cleanup --no-lock", shell=True, check=True)
+        "brew bundle --quiet --file ./brew/Brewfile --cleanup --no-lock", shell=True, check=True
+    )
 
 
 def installOMZSH():
@@ -75,8 +76,7 @@ def makeSymlinks():
     )
 
     if not os.path.isfile(homeDir + ".hushlogin"):
-        subprocess.run("touch" + homeDir + ".hushlogin",
-                       shell=True, check=False)
+        subprocess.run("touch" + homeDir + ".hushlogin", shell=True, check=False)
 
     if validPath:
         shutil.rmtree(oldDir, ignore_errors=True)
@@ -86,8 +86,7 @@ def makeSymlinks():
 
     if not validNvimPath:
         os.mkdir(nvimDir)
-        os.symlink("%s/%s" % (cwd, "init.vim"), "%s/%s" %
-                   (nvimDir, "init.vim"))
+        os.symlink("%s/%s" % (cwd, "init.vim"), "%s/%s" % (nvimDir, "init.vim"))
 
     # Intentionally non destructive
     for file in files:
@@ -108,7 +107,10 @@ def main():
     if not os.path.isfile("/etc/whois.conf"):
         print(yellow("\tSudo access needed to install better ntld support\n"))
         subprocess.run(
-            "sudo wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf", shell=True, check=False)
+            "sudo wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf",
+            shell=True,
+            check=False,
+        )
 
 
 if __name__ == "__main__":
