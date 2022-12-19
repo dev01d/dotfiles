@@ -25,10 +25,10 @@ def installBrew():
     print(blue("\n--> Installing brew"))
     brewInstall = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
     validPath = os.path.isfile("/opt/homebrew/bin/brew")
-    if validPath:
-        print(green("\n\tBrew already installed"))
-    else:
+    if not validPath:
         subprocess.run(brewInstall, shell=True, check=True)
+    else:
+        print(green("\n\tBrew already installed"))
 
 
 def installBrewApps():
@@ -42,9 +42,7 @@ def installBrewApps():
         input(yellow("\n\tPress Enter to continue"))
     print(blue("\n--> Continuing install\n"))
     sleep(3)
-    subprocess.run(
-        "brew bundle --quiet --file ./brew/Brewfile --cleanup --no-lock", shell=True, check=True
-    )
+    subprocess.run("brew bundle --quiet --cleanup --no-lock", shell=True, check=True)
 
 
 def installOMZSH():
@@ -54,10 +52,10 @@ def installOMZSH():
     homeDir = os.path.expanduser("~")
     omzshpath = homeDir + "/.oh-my-zsh"
     validPath = os.path.isdir(omzshpath)
-    if validPath:
-        print(green("\n\tOMZSH is already installed"))
-    else:
+    if not validPath:
         subprocess.run(omzsh, shell=True, check=True)
+    else:
+        print(green("\n\tOMZSH is already installed"))
 
 
 def makeSymlinks():
@@ -65,7 +63,9 @@ def makeSymlinks():
     cwd = os.getcwd()
     oldDir = homeDir + "/.dotfiles_old"
     nvimDir = homeDir + "/.config/nvim"
-    validPath = os.path.isdir(oldDir)
+    brewfile = homeDir + "/.config/brewfile"
+    validOldPath = os.path.isdir(oldDir)
+    validBrewPath = os.path.isdir(brewfile)
     validNvimPath = os.path.isdir(nvimDir)
     files = (
         "zshrc",
@@ -76,9 +76,9 @@ def makeSymlinks():
     )
 
     if not os.path.isfile(homeDir + ".hushlogin"):
-        subprocess.run("touch" + homeDir + ".hushlogin", shell=True, check=False)
+        subprocess.run("touch " + homeDir + "/.hushlogin", shell=True, check=False)
 
-    if validPath:
+    if validOldPath:
         shutil.rmtree(oldDir, ignore_errors=True)
         os.mkdir(oldDir)
     else:
@@ -87,6 +87,10 @@ def makeSymlinks():
     if not validNvimPath:
         os.mkdir(nvimDir)
         os.symlink("%s/%s" % (cwd, "init.vim"), "%s/%s" % (nvimDir, "init.vim"))
+
+    if not validBrewPath:
+        os.mkdir(brewfile)
+        os.symlink("%s/%s" % (cwd, "Brewfile"), "%s/%s" % (brewfile, "Brewfile"))
 
     # Intentionally non destructive
     for file in files:
