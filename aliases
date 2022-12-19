@@ -5,20 +5,21 @@ HISTCONTROL=ignoreboth
 HISTFILESIZE=2000
 HISTSIZE=1000
 #! Aliases
-alias vim='nvim'
-alias un='extract'
-alias c='codeWD $1'
-alias cf='codeFinder'
-alias less='less -FSRXc'
-alias {rm,rmr}='trash -v'
-alias tfaa='tfa -auto-approve'
-alias tfda='tfd -auto-approve'
+alias vim="nvim"
+alias un="extract"
+alias c="codeWD $1"
+alias cf="codeFinder"
+alias less="less -FSRXc"
+alias {rm,rmr}="trash -v"
+alias tfaa="tfa -auto-approve"
+alias tfda="tfd -auto-approve"
+alias bu="~/.dotfiles/brew_maint.py"
 alias ap="ansible-playbook $1"
-alias dtest='docker run --rm -it $1'
-alias {wip,whatip}='curl -4 ifconfig.co/; curl -6 ifconfig.co/'
+alias dtest="docker run --rm -it $1"
+alias {wip,whatip}="curl -4 ifconfig.co/; curl -6 ifconfig.co/"
 alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
-alias lscpu='sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48'
-alias flushdns='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
+alias lscpu="sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48"
+alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
 #! Functions
 # Generate ed25519 with no interaction
