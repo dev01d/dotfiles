@@ -20,13 +20,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'ajh17/VimCompletesMe'
 
 " Lang Support
-Plug 'arzg/vim-sh'
-Plug 'yuezk/vim-js'
-Plug 'fatih/vim-go'
-Plug 'keith/swift.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sheerun/vim-polyglot'
 
+" Vim status in gutter
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
@@ -86,6 +82,12 @@ augroup docker_ft
   au!
   autocmd BufNewFile,BufRead Dockerfile.*  set syntax=dockerfile
 augroup END
+
+" Syntax highlighing for compose files
+autocmd bufread,bufnewfile compose*.{yaml,yml}* set ft=yaml.docker-compose
+
+" Syntax highlighing for alias files
+autocmd bufread,bufnewfile .*aliases set ft=sh
 
 " Adds chars to whitespace and removes trailing
 set list listchars=trail:∙,tab:»\ ,precedes:←,extends:→
