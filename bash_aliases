@@ -11,8 +11,8 @@ alias un='extract'
 alias rr='if [ -f /var/run/reboot-required ]; then echo reboot required; else echo No reboot needed; fi'
 # Trim node_modules
 alias del_node="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
-alias install="sudo apt-get install $1"
-alias upgrade="sudo apt-get update && sudo apt dist-upgrade && sudo apt autoremove"
+alias install="sudo apt install $1"
+alias upgrade="sudo apt update && sudo apt dist-upgrade && sudo apt autoremove"
 alias node="nodejs"
 alias dc="docker compose"
 alias vim="nvim"
