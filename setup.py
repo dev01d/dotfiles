@@ -42,7 +42,9 @@ def installBrewApps():
         input(yellow("\n\tPress Enter to continue"))
     print(blue("\n--> Continuing install\n"))
     sleep(3)
-    subprocess.run("brew bundle --quiet --cleanup --no-lock", shell=True, check=True)
+    subprocess.run(
+        "brew bundle --quiet --file ./Brewfile --cleanup --no-lock", shell=True, check=True
+    )
 
 
 def installOMZSH():
