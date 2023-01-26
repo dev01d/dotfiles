@@ -3,7 +3,9 @@
 	email = jason@jasonbehnke.io
 	signingkey = 686E1D041D8AE288
 [color]
-	ui = auto
+  ui = auto
+[gpg]
+  program = gpg
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
