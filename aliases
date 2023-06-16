@@ -15,6 +15,8 @@ alias tfaa="tfa -auto-approve"
 alias tfda="tfd -auto-approve"
 alias bu="~/.dotfiles/brew_maint.py"
 alias ap="ansible-playbook $1"
+alias k="kubecolor"
+alias kctx="kubectx"
 alias dtest="docker run --rm -it $1"
 alias {wip,whatip}="curl -4 ifconfig.co/; curl -6 ifconfig.co/"
 alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
@@ -53,13 +55,6 @@ function f() {
   find "$path" -follow -name '*' | xargs grep "$*"
 }
 
-# Download video with unique name
-function w4() {
-  URL="$1"
-  FILE=$(openssl rand -hex 12).mp4
-  wget -nv --progress=bar "$URL" -O "$FILE"
-}
-
 # Usage: $ gh_latest "dev01d/inv"
 # v0.3.0
 function gh_latest() {
@@ -91,10 +86,17 @@ function codeWD() {
   code $1
 }
 
+function ktdel() {
+  k get pods --all-namespaces | grep 'Terminating\|Unknown\|Error' | while read line; do
+  pod_name=$(echo $line | awk '{print $2}' ) \
+  name_space=$(echo $line | awk '{print $1}' ); \
+  kubectl delete pods ${pod_name} -n ${name_space} --grace-period=0 --force
+  done
+}
+
 #? Exports
 # GO
 export GOPATH=$HOME/.go
-export PATH=$PATH:/usr/local/go/bin
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

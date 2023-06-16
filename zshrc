@@ -17,6 +17,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
   aliases
+  ansible
   autoupdate
   colored-man-pages
   docker
@@ -25,9 +26,11 @@ plugins=(
   extract
   git
   golang
+  helm
   kubectl
   kubectx
   terraform
+  yarn
   z
 )
 
@@ -64,7 +67,9 @@ source ~/.aliases
 
 #? Completeion
 source <(kubectl completion zsh)
-complete -F __start_kubectl k
+complete -o default -F __start_kubectl k
+# make completion work with kubecolor
+compdef kubecolor=kubectl
 
 autoload -Uz +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
