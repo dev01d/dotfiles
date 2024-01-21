@@ -17,7 +17,7 @@ Plug 'mhinz/vim-signify'
 
 " Utils
 Plug 'Yggdroot/indentLine'
-Plug 'ajh17/VimCompletesMe'
+Plug 'vim-scripts/VimCompletesMe'
 
 " Lang Support
 Plug 'sheerun/vim-polyglot'
