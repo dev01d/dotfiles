@@ -45,11 +45,20 @@ def makeSymlinks():
 
 def main():
     makeSymlinks()
-    os.system("sudo apt-get install curl htop nmap ncdu whois git unzip neovim -y")
+    if os.geteuid() == 0:
+        os.system("apt-get install curl htop nmap ncdu whois git unzip neovim -y")
+    else:
+        os.system("sudo apt-get install curl htop nmap ncdu whois git unzip neovim -y")
     if not os.path.isfile("/etc/whois.conf"):
-        print(yellow("\tSudo access needed to install better ntld support\n"))
-        subprocess.run(
-            "sudo wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf", shell=True, check=False)
+        print(yellow("\tInstalling better ntld support\n"))
+        if os.geteuid() == 0:
+            subprocess.run(
+                "wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf", shell=True, check=False)
+        else:
+            print(yellow("\tSudo access needed to install better ntld support\n"))
+            subprocess.run(
+                "sudo wget -nc https://www.unpm.org/whois.conf -O /etc/whois.conf", shell=True, check=False)
+
 
 
 if __name__ == "__main__":
