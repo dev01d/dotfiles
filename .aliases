@@ -37,14 +37,6 @@ function theme() {
   osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 }
 
-# Source the correct dotfile that links here
-function reload() {
-  case $(echo "$SHELL") in
-    *zsh) source "$HOME/.zshrc";;
-    *bash) source "$HOME/.bashrc" ;;
-  esac
-}
-
 # Set window title
 function title() {
   echo -ne "\033]0;*\007";

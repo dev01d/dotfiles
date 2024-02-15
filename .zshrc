@@ -3,6 +3,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# reload aliases on new prompt line
+precmd() {
+  source ~/.aliases
+}
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
 
@@ -63,8 +67,6 @@ source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Alias defs
-source ~/.aliases
 
 #? Completeion
 source <(kubectl completion zsh)
@@ -77,4 +79,3 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
-
