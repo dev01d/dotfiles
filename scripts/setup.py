@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import subprocess
-import shutil
 from time import sleep
 
 
@@ -43,7 +42,9 @@ def installBrewApps():
     print(blue("\n--> Continuing install\n"))
     sleep(3)
     subprocess.run(
-        "brew bundle --quiet --file ./Brewfile --cleanup --no-lock", shell=True, check=True
+        "brew bundle --quiet --file ~/.dotfiles/.config/brewfile/Brewfile --cleanup --no-lock",
+        shell=True,
+        check=True,
     )
 
 
@@ -61,48 +62,7 @@ def installOMZSH():
 
 
 def makeSymlinks():
-    homeDir = os.path.expanduser("~")
-    cwd = os.getcwd()
-    oldDir = homeDir + "/.dotfiles_old"
-    nvimDir = homeDir + "/.config/nvim"
-    brewfile = homeDir + "/.config/brewfile"
-    validOldPath = os.path.isdir(oldDir)
-    validBrewPath = os.path.isdir(brewfile)
-    validNvimPath = os.path.isdir(nvimDir)
-    files = (
-        "zshrc",
-        "aliases",
-        "p10k.zsh",
-        "gitconfig",
-        "global_gitignore",
-    )
-
-    if not os.path.isfile(homeDir + ".hushlogin"):
-        subprocess.run("touch " + homeDir + "/.hushlogin", shell=True, check=False)
-
-    if validOldPath:
-        shutil.rmtree(oldDir, ignore_errors=True)
-        os.mkdir(oldDir)
-    else:
-        os.mkdir(oldDir)
-
-    if not validNvimPath:
-        os.mkdir(nvimDir)
-        os.symlink("%s/%s" % (cwd, "init.vim"), "%s/%s" % (nvimDir, "init.vim"))
-
-    if not validBrewPath:
-        os.mkdir(brewfile)
-        os.symlink("%s/%s" % (cwd, "Brewfile"), "%s/%s" % (brewfile, "Brewfile"))
-
-    # Intentionally non destructive
-    for file in files:
-        if os.path.isfile(homeDir + "/." + file):
-            shutil.move("%s/.%s" % (homeDir, file), oldDir)
-        else:
-            pass
-
-    for file in files:
-        os.symlink("%s/%s" % (cwd, file), "%s/.%s" % (homeDir, file))
+    subprocess.run("cd ~/.dotfiles && stow .", shell=True, check=True)
 
 
 def main():

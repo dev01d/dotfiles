@@ -32,7 +32,13 @@ def runBrewMaint():
         print(red("Can't get Brewfile location"))
 
     print(blue("\n--> Brew install from Brewfile\n"))
-    subprocess.run("brew bundle --cleanup --no-lock", shell=True, check=True)
+    subprocess.run("brew bundle --cleanup --no-lock", shell=True, check=False)
+
+    print(blue("\n--> Brew update\n"))
+    subprocess.run("brew update", shell=True, check=True)
+
+    print(blue("\n--> Brew cleanup\n"))
+    subprocess.run("brew cleanup", shell=True, check=True)
 
 
 def main():

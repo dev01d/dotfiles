@@ -38,7 +38,7 @@
     docker
     virtualenv
     kubecontext
-    custom_terraform
+    terraform
     vcs
     status
   )
@@ -81,23 +81,12 @@
   typeset -g POWERLEVEL9K_TIME_ICON=""
 
   # Terraform Segment
-  typeset -g POWERLEVEL9K_CUSTOM_TERRAFORM="zsh_terraform"
-  typeset -g POWERLEVEL9K_CUSTOM_TERRAFORM_BACKGROUND=057
-  typeset -g POWERLEVEL9K_CUSTOM_TERRAFORM_FOREGROUND=015
-
-  # Terraform
-  zsh_terraform() {
-    # break if there is no .terraform directory
-    if [[ -d .terraform ]]; then
-      local tf_workspace=$(/opt/homebrew/bin/terraform workspace show)
-      echo -n "$tf_workspace"
-    fi
-  }
+  typeset -g POWERLEVEL9K_TERRAFORM_SHOW_DEFAULT=false
 
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|k|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|kubecolor|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile'
 
   # You can define different colors, icons and content expansions for different classes:
   #

@@ -17,7 +17,7 @@ Plug 'mhinz/vim-signify'
 
 " Utils
 Plug 'Yggdroot/indentLine'
-Plug 'ajh17/VimCompletesMe'
+Plug 'vim-scripts/VimCompletesMe'
 
 " Lang Support
 Plug 'sheerun/vim-polyglot'
@@ -69,7 +69,9 @@ set laststatus=2
 set shiftwidth=2
 set softtabstop=2
 set rtp+=/usr/local/opt/fzf
+set clipboard=unnamedplus
 set backspace=indent,eol,start
+inoremap jk <ESC>
 
 " Auto whitespace trimming on write
 function TrimWhiteSpace()

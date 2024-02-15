@@ -7,26 +7,29 @@ HISTSIZE=1000
 #! Aliases
 alias vim="nvim"
 alias un="extract"
-alias c="codeWD $1"
+alias c="codeWD"
 alias cf="codeFinder"
 alias less="less -FSRXc"
 alias {rm,rmr}="trash -v"
 alias tfaa="tfa -auto-approve"
 alias tfda="tfd -auto-approve"
-alias bu="~/.dotfiles/brew_maint.py"
-alias ap="ansible-playbook $1"
+alias bu="~/.dotfiles/scripts/brew_maint.py"
+alias ap="ansible-playbook"
 alias k="kubecolor"
 alias kctx="kubectx"
-alias dtest="docker run --rm -it $1"
+alias dtest="docker run --rm -it"
 alias {wip,whatip}="curl -4 ifconfig.co/; curl -6 ifconfig.co/"
-alias del_node="find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +"
+alias del_node='find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +'
 alias lscpu="sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48"
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+alias penv="source .venv/bin/activate"
+alias k0sctl="DISABLE_TELEMETRY=true k0sctl"
+alias tabby="tabby serve --device metal --model TabbyML/StarCoder-3B"
 
 #! Functions
 # Generate ed25519 with no interaction
 function keygen(){
-  ssh-keygen -t ed25519 -q -N '' -C '' -f ~/.ssh/$1
+  ssh-keygen -t ed25519 -q -N '' -C '' -f ~/.ssh/"$1"
 }
 
 # Toggles between light or dark mode on macOS
@@ -36,7 +39,7 @@ function theme() {
 
 # Source the correct dotfile that links here
 function reload() {
-  case $(echo $SHELL) in
+  case $(echo "$SHELL") in
     *zsh) source "$HOME/.zshrc";;
     *bash) source "$HOME/.bashrc" ;;
   esac
@@ -44,7 +47,7 @@ function reload() {
 
 # Set window title
 function title() {
-  echo -ne "\033]0;$@\007";
+  echo -ne "\033]0;*\007";
 }
 
 # F grep
@@ -67,7 +70,7 @@ function gh_latest() {
 function cdf() {
   target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
     if [ "$target" != "" ]; then
-      cd "$target"; pwd
+      cd "$target" || exit; pwd
     else
       echo 'No Finder window found' >&2
     fi
@@ -83,15 +86,11 @@ function codeWD() {
   if [ -z "$1" ]; then
     set -- "./"
   fi
-  code $1
+  code "$1"
 }
 
 function ktdel() {
-  k get pods --all-namespaces | grep 'Terminating\|Unknown\|Error' | while read line; do
-  pod_name=$(echo $line | awk '{print $2}' ) \
-  name_space=$(echo $line | awk '{print $1}' ); \
-  kubectl delete pods ${pod_name} -n ${name_space} --grace-period=0 --force
-  done
+  kubectl get pods --all-namespaces | grep 'Terminating\|Unknown\|Error\|Evicted\|Pending' | awk '{print $2 " -n " $1}' | xargs kubectl delete pod --grace-period=0 --force
 }
 
 #? Exports
