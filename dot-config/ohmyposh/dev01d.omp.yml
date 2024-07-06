@@ -37,12 +37,6 @@ blocks:
         namelength: 0
   - type: rprompt
     segments:
-      - type: kubectl
-        style: powerline
-        leading_powerline_symbol: 
-        foreground: "#000000"
-        background: "#2550d5"
-        template: " ﴱ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
       - type: node
         style: plain
         template: "\ue718 "
@@ -116,9 +110,8 @@ tooltips:
   - type: aws
     tips:
       - aws
-    style: diamond
-    leading_diamond: 
-    trailing_diamond: 
+    style: powerline
+    leading_powerline_symbol: 
     template: " \ue7ad {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
     properties:
       display_default: true
@@ -130,9 +123,8 @@ tooltips:
   - type: az
     tips:
       - az
-    style: diamond
-    leading_diamond: 
-    trailing_diamond: 
+    style: powerline
+    leading_powerline_symbol: 
     template: " \uebd8 {{ .Name }} "
     properties:
       display_default: true

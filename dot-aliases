@@ -52,15 +52,10 @@ function ktdel() {
     xargs kubectl delete pod --grace-period=0 --force
 }
 
+# history settings
 HISTSIZE=1000
 HISTFILESIZE=2000
 HISTCONTROL=ignoreboth
-
-#? Completeion
-# source <(kubectl completion zsh)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Rye
-source "$HOME/.rye/env"
 
 #? Exports
 # GO
