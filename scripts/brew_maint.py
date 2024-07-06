@@ -37,6 +37,10 @@ def runBrewMaint():
     print(blue("\n--> Brew update\n"))
     subprocess.run("brew update", shell=True, check=True)
 
+    print(blue("\n--> Brew upgrade\n"))
+    subprocess.run("brew upgrade", shell=True, check=True)
+
+
     print(blue("\n--> Brew cleanup\n"))
     subprocess.run("brew cleanup", shell=True, check=True)
 
