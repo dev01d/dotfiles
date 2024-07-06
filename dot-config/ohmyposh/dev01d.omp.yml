@@ -1,0 +1,165 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version: 2
+final_space: true
+console_title_template: "{{ .Folder }}"
+blocks:
+  - type: prompt
+    alignment: left
+    segments:
+      - type: time
+        style: powerline
+        template: " {{ .CurrentDate | date .Format }} "
+        properties:
+          time_format: 15:04
+        background: "249"
+        foreground: black
+        text: ""
+        duration: 0s
+        namelength: 0
+      - type: path
+        style: powerline
+        template: " {{ .Path }} "
+        powerline_symbol: 
+        properties:
+          style: letter
+        background: "238"
+        foreground: "249"
+        duration: 0s
+      - type: root
+        style: powerline
+        powerline_symbol: 
+        template: " \uf0e7 "
+        background: p:yellow
+        foreground: p:white
+        text: ""
+        duration: 0s
+        namelength: 0
+  - type: rprompt
+    segments:
+      - type: kubectl
+        style: powerline
+        leading_powerline_symbol: 
+        foreground: "#000000"
+        background: "#2550d5"
+        template: " ﴱ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+      - type: node
+        style: plain
+        template: "\ue718 "
+        properties:
+          display_mode: files
+          fetch_package_manager: false
+          home_enabled: false
+        background: transparent
+        foreground: p:green
+        text: ""
+        duration: 0s
+        namelength: 0
+      - type: go
+        style: plain
+        template: "\ue626 "
+        properties:
+          fetch_version: false
+        background: transparent
+        foreground: p:blue
+        text: ""
+        duration: 0s
+        namelength: 0
+      - type: python
+        style: plain
+        template: "\ue235 "
+        properties:
+          display_mode: files
+          fetch_version: false
+          fetch_virtual_env: false
+        background: transparent
+        foreground: p:yellow
+        text: ""
+        duration: 0s
+        namelength: 0
+      - type: git
+        style: powerline
+        leading_powerline_symbol: 
+        background: p:green
+        foreground: p:black
+        background_templates:
+          - "{{ if or (.Working.Changed) (.Staging.Changed) }}#DFE310{{ end }}"
+          - "{{ if and (gt .Behind 0) }}#b388ff{{ end }}"
+        template: " {{ .HEAD }}{{ if gt .Behind 0 }}\u2193{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }} *{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ end }} "
+        properties:
+          branch_icon: "\ue725 "
+          fetch_status: true
+          commit_icon: "@"
+          no_commits_icon: 
+          display_stash_count: true
+          branch_identical_icon: ""
+          #
+          # status_colors_enabled: true
+          # display_status: true
+          # local_changes_color: "#ff9248"
+          # ahead_and_behind_color: "#f26d50"
+          # behind_color: "#f17c37"
+          # ahead_color: "#89d1dc"
+tooltips:
+  - type: kubectl
+    tips:
+      - k
+      - kubectl
+      - helm
+    style: powerline
+    leading_powerline_symbol: 
+    foreground: "#000000"
+    background: "#2550d5"
+    template: " ﴱ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+    properties:
+      display_mode: "always"
+  - type: aws
+    tips:
+      - aws
+    style: diamond
+    leading_diamond: 
+    trailing_diamond: 
+    template: " \ue7ad {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
+    properties:
+      display_default: true
+    background: p:orange
+    foreground: p:white
+    text: ""
+    duration: 0s
+    namelength: 0
+  - type: az
+    tips:
+      - az
+    style: diamond
+    leading_diamond: 
+    trailing_diamond: 
+    template: " \uebd8 {{ .Name }} "
+    properties:
+      display_default: true
+    background: p:blue
+    foreground: p:white
+    text: ""
+    duration: 0s
+    namelength: 0
+# transient_prompt:
+#   template: "<p:yellow,transparent>\ue0b6</><,p:yellow> {{ .Folder }} </><p:yellow,transparent>\ue0b0</> "
+#   background: transparent
+#   foreground: p:black
+#   text: ""
+#   duration: 0s
+#   namelength: 0
+# secondary_prompt:
+#   template: "<p:yellow,transparent>\ue0b6</><,p:yellow> > </><p:yellow,transparent>\ue0b0</> "
+#   background: transparent
+#   foreground: p:black
+#   text: ""
+#   duration: 0s
+#   namelength: 0
+palette:
+  black: "#262B44"
+  blue: "#4B95E9"
+  green: "#59C9A5"
+  orange: "#F07623"
+  red: "#D81E5B"
+  white: "#E0DEF4"
+  yellow: "#F3AE35"
