@@ -62,7 +62,7 @@ def installOMZSH():
 
 
 def makeSymlinks():
-    subprocess.run("cd ~/.dotfiles && stow .", shell=True, check=True)
+    subprocess.run("cd ~/.dotfiles && stow . --dotfiles", shell=True, check=True)
 
 
 def main():

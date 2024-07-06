@@ -1,13 +1,6 @@
-# Don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTFILESIZE=2000
-HISTSIZE=1000
-#! Aliases
+#? Aliases
 alias vim="nvim"
 alias un="extract"
-alias c="codeWD"
 alias cf="codeFinder"
 alias less="less -FSRXc"
 alias {rm,rmr}="trash -v"
@@ -24,7 +17,6 @@ alias lscpu="sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\:
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 alias penv="source .venv/bin/activate"
 alias k0sctl="DISABLE_TELEMETRY=true k0sctl"
-alias tabby="tabby serve --device metal --model TabbyML/StarCoder-3B"
 
 #! Functions
 # Generate ed25519 with no interaction
@@ -35,19 +27,6 @@ function keygen(){
 # Toggles between light or dark mode on macOS
 function theme() {
   osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
-}
-
-# Set window title
-function title() {
-  echo -ne "\033]0;*\007";
-}
-
-# F grep
-# Usage: f /some/path [grep options]
-function f() {
-  local path="$1"
-  shift
-  find "$path" -follow -name '*' | xargs grep "$*"
 }
 
 # cd to currnet Finder loaction
@@ -66,16 +45,22 @@ function codeFinder() {
   eval code "$dest"
 }
 
-function codeWD() {
-  if [ -z "$1" ]; then
-    set -- "./"
-  fi
-  code "$1"
+function ktdel() {
+  kubectl get pods --all-namespaces |
+    grep 'Terminating\|Unknown\|Error\|Evicted\|Pending' |
+    awk '{print $2 " -n " $1}' |
+    xargs kubectl delete pod --grace-period=0 --force
 }
 
-function ktdel() {
-  kubectl get pods --all-namespaces | grep 'Terminating\|Unknown\|Error\|Evicted\|Pending' | awk '{print $2 " -n " $1}' | xargs kubectl delete pod --grace-period=0 --force
-}
+HISTSIZE=1000
+HISTFILESIZE=2000
+HISTCONTROL=ignoreboth
+
+#? Completeion
+# source <(kubectl completion zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Rye
+source "$HOME/.rye/env"
 
 #? Exports
 # GO
@@ -86,5 +71,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export KUBECONFIG=.kube/config:$HOME/.kube/config:$PWD/kube_config_cluster.yml:$PWD/.kube/kube_config_cluster.yml
 # bat
 export BAT_THEME="TwoDark"
-# iterm2 int
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/.bin:/usr/local/bin:$PATH

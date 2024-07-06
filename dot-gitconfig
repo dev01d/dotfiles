@@ -26,6 +26,7 @@
 [init]
 	defaultBranch = main
 [alias]
+	undo = reset --mixed HEAD^
 	lost = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
 	bent = !git remote prune origin
 [pull]
