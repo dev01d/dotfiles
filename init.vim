@@ -22,6 +22,7 @@ Plug 'vim-scripts/VimCompletesMe'
 " Lang Support
 Plug 'sheerun/vim-polyglot'
 
+" Vim status in gutter
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
@@ -68,7 +69,9 @@ set laststatus=2
 set shiftwidth=2
 set softtabstop=2
 set rtp+=/usr/local/opt/fzf
+set clipboard=unnamedplus
 set backspace=indent,eol,start
+inoremap jk <ESC>
 
 " Auto whitespace trimming on write
 function TrimWhiteSpace()
@@ -85,6 +88,7 @@ augroup END
 " Syntax highlighing for compose files
 autocmd bufread,bufnewfile compose*.{yaml,yml}* set ft=yaml.docker-compose
 
+" Syntax highlighing for alias files
 autocmd bufread,bufnewfile .*aliases set ft=sh
 
 " Adds chars to whitespace and removes trailing
@@ -93,4 +97,3 @@ autocmd FileWritePre * call TrimWhiteSpace()
 autocmd FileAppendPre * call TrimWhiteSpace()
 autocmd FilterWritePre * call TrimWhiteSpace()
 autocmd BufWritePre * call TrimWhiteSpace()
-
