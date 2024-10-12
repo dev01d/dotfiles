@@ -2,6 +2,9 @@
 
 version: 2
 final_space: true
+auto_upgrade: true
+disable_notice: true
+iterm_features: [current_dir, remote_host]
 console_title_template: "{{ .Folder }}"
 blocks:
   - type: prompt
@@ -37,6 +40,12 @@ blocks:
         namelength: 0
   - type: rprompt
     segments:
+      # - type: kubectl
+      #   style: powerline
+      #   leading_powerline_symbol: 
+      #   foreground: "#fff"
+      #   background: "#2550d5"
+      #   template: " ﴱ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
       - type: node
         style: plain
         template: "\ue718 "
@@ -133,20 +142,6 @@ tooltips:
     text: ""
     duration: 0s
     namelength: 0
-# transient_prompt:
-#   template: "<p:yellow,transparent>\ue0b6</><,p:yellow> {{ .Folder }} </><p:yellow,transparent>\ue0b0</> "
-#   background: transparent
-#   foreground: p:black
-#   text: ""
-#   duration: 0s
-#   namelength: 0
-# secondary_prompt:
-#   template: "<p:yellow,transparent>\ue0b6</><,p:yellow> > </><p:yellow,transparent>\ue0b0</> "
-#   background: transparent
-#   foreground: p:black
-#   text: ""
-#   duration: 0s
-#   namelength: 0
 palette:
   black: "#262B44"
   blue: "#4B95E9"

@@ -6,8 +6,6 @@ fi
 precmd() {
   source ~/.aliases
 }
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.bin:/usr/local/bin:$PATH
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -33,6 +31,7 @@ plugins=(
   helm
   kubectl
   kubectx
+  # kube-ps1
   terraform
   yarn
   z
@@ -62,6 +61,15 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+#? Exports
+# GO
+export GOPATH=$HOME/.go
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# K8s
+export KUBECONFIG=.kube/config:$HOME/.kube/config:$PWD/kube_config_cluster.yml:$PWD/.kube/kube_config_cluster.yml
+# bat
+export BAT_THEME="TwoDark"
 # Source Rye
 source "$HOME/.rye/env"
 
