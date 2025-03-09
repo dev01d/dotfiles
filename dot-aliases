@@ -6,7 +6,7 @@ HISTCONTROL=ignoreboth
 #? Aliases
 alias vim="nvim"
 alias {rm,rmr}="trash -v"
-alias bu="~/.dotfiles/scripts/brew_maint.py"
+alias bu="cd ~/.dotfiles && just brew"
 alias ap="ansible-playbook"
 alias k="kubecolor"
 alias yt="yt-dlp -S vcodec:h264,res,acodec:m4a"
