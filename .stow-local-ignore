@@ -3,3 +3,4 @@
 .vscode
 /scripts
 /conf
+justfile

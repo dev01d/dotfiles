@@ -1,22 +1,22 @@
+# history settings
+HISTSIZE=1000
+HISTFILESIZE=2000
+HISTCONTROL=ignoreboth
+
 #? Aliases
 alias vim="nvim"
-alias un="extract"
-alias cf="codeFinder"
-alias less="less -FSRXc"
-alias "{rm,rmr}"="trash -v"
-alias tfaa="tfa -auto-approve"
-alias tfda="tfd -auto-approve"
+alias {rm,rmr}="trash -v"
 alias bu="~/.dotfiles/scripts/brew_maint.py"
 alias ap="ansible-playbook"
 alias k="kubecolor"
-alias kctx="kubectx"
+alias yt="yt-dlp -S vcodec:h264,res,acodec:m4a"
 alias dtest="docker run --rm -it"
-alias "{wip,whatip}"="curl -4 ifconfig.co/; curl -6 ifconfig.co/"
+alias scan='nmap -p 22 --open -sV $(route -n get default | grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}")/24'
+alias {wip,whatip}="curl -4 ifconfig.co/; curl -6 ifconfig.co/"
 alias del_node='find $HOME/Sites -name 'node_modules' -type d -prune -exec trash -v '{}' +'
 alias lscpu="sysctl -n machdep.cpu.brand_string && sysctl -a | grep \.features\: | fmt -w 48"
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 alias penv="source .venv/bin/activate"
-alias k0sctl="DISABLE_TELEMETRY=true k0sctl"
 
 #! Functions
 # Generate ed25519 with no interaction
@@ -28,31 +28,3 @@ function keygen(){
 function theme() {
   osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 }
-
-# cd to currnet Finder loaction
-function cdf() {
-  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-    if [ "$target" != "" ]; then
-      cd "$target" || exit; pwd
-    else
-      echo 'No Finder window found' >&2
-    fi
-}
-
-# Open VSCode at current Finder location
-function codeFinder() {
-  dest=$(eval cdf)
-  eval code "$dest"
-}
-
-function ktdel() {
-  kubectl get pods --all-namespaces |
-    grep 'Terminating\|Unknown\|Error\|Evicted\|Pending' |
-    awk '{print $2 " -n " $1}' |
-    xargs kubectl delete pod --grace-period=0 --force
-}
-
-# history settings
-HISTSIZE=1000
-HISTFILESIZE=2000
-HISTCONTROL=ignoreboth

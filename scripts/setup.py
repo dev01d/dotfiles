@@ -42,7 +42,7 @@ def installBrewApps():
     print(blue("\n--> Continuing install\n"))
     sleep(3)
     subprocess.run(
-        "brew bundle --quiet --file ~/.dotfiles/.config/brewfile/Brewfile --cleanup --no-lock",
+        "brew bundle --quiet --file ~/.dotfiles/.config/brewfile/Brewfile --cleanup",
         shell=True,
         check=True,
     )

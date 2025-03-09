@@ -1,13 +1,15 @@
 " Install Plug and Plugs if they don't exist
+" spellchecker: disable
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent execute "!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    source '~/.config/nvim/autoload/plug.vim' " this needs to be added
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/plugged')
 " Themeing
 Plug 'vim-airline/vim-airline-themes'
-Plug 'liuchengxu/space-vim-dark'
+Plug 'olimorris/onedarkpro.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -21,23 +23,16 @@ Plug 'vim-scripts/VimCompletesMe'
 
 " Lang Support
 Plug 'sheerun/vim-polyglot'
+Plug 'adityastomar67/italicize'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Vim status in gutter
 Plug 'airblade/vim-gitgutter'
-
 call plug#end()
 
-" Added color support
-if $TERM == "xterm-256color"
-  set t_Co=256
-endif
-
 " Theming
-colorscheme space-vim-dark
-hi Comment cterm=italic
-hi Comment guifg=#5C6370 ctermfg=59
-let g:space_vim_dark_background = 233
-color space-vim-dark
+set termguicolors
+colorscheme onedark_vivid
 
 " Airline
 let g:airline_theme='powerlineish'
@@ -45,7 +40,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
 
-"  Indent
+" Indent
 let g:indentguides_ignorelist = ['text']
 let g:indentLine_char = '▏'
 
@@ -54,8 +49,6 @@ let g:signify_sign_add = '│'
 let g:signify_sign_delete = '│'
 let g:signify_sign_change = '│'
 hi DiffDelete guifg=#ff5555 guibg=none
-
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 " UI args
 syntax on
