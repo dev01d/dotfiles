@@ -1,0 +1,4 @@
+shell-integration = zsh
+cursor-style = underline
+font-family = "JetBrains Mono"
+keybind = global:alt+.=toggle_quick_terminal
