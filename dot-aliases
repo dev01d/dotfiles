@@ -6,7 +6,7 @@ HISTCONTROL=ignoreboth
 #? Aliases
 alias vim="nvim"
 alias {rm,rmr}="trash -v"
-alias bu="cd ~/.dotfiles && just brew"
+alias bu="~/.dotfiles/scripts/brew_maint.py"
 alias ap="ansible-playbook"
 alias k="kubecolor"
 alias yt="yt-dlp -S vcodec:h264,res,acodec:m4a"
@@ -27,4 +27,20 @@ function keygen(){
 # Toggles between light or dark mode on macOS
 function theme() {
   osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+}
+
+function drain() {
+  context=$(kubectl config current-context --as string)
+  k drain --ignore-daemonsets --delete-emptydir-data "$context" || {
+    echo "Failed to drain $context. Ensure you have the necessary permissions."
+    return 1
+  }
+}
+
+function undrain() {
+  context=$(kubectl config current-context --as string)
+  k uncordon "$context" || {
+    echo "Failed to uncordon $context. Ensure you have the necessary permissions."
+    return 1
+  }
 }
