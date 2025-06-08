@@ -30,17 +30,17 @@ function theme() {
 }
 
 function drain() {
-  context=$(kubectl config current-context --as string)
-  k drain --ignore-daemonsets --delete-emptydir-data "$context" || {
-    echo "Failed to drain $context. Ensure you have the necessary permissions."
+  node=$(kubectl get no -o jsonpath="{.items[*].metadata.name}")
+  kubectl drain --ignore-daemonsets --delete-emptydir-data "$node" || {
+    echo "Failed to drain $node. Ensure you have the necessary permissions."
     return 1
   }
 }
 
-function undrain() {
-  context=$(kubectl config current-context --as string)
-  k uncordon "$context" || {
-    echo "Failed to uncordon $context. Ensure you have the necessary permissions."
+function uncordon() {
+  node=$(kubectl get no -o jsonpath="{.items[*].metadata.name}")
+  kubectl uncordon "$node" || {
+    echo "Failed to uncordon $node. Ensure you have the necessary permissions."
     return 1
   }
 }
